@@ -1,0 +1,36 @@
+.button{
+    outline: none;
+    border:  1px solid;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+.containerButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 2.0rem;
+    /* border-radius: 2rem */
+}
+.textButton{
+    
+    font-family: var(--fontA);
+    font-style: normal;
+}
+.sm{
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+}
+.md{
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+}
+
+.lg{
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+}
+
+.xl{
+    padding: 1rem 2rem;
+    font-size: 2rem;
+}

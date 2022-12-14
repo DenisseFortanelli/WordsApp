@@ -1,0 +1,43 @@
+.containerLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem;
+  gap: 1.6rem;
+  position: absolute;
+  height: 6.4rem;
+  top: 0rem;
+}
+.containerTitle {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 0.4rem;
+  height: 6.4rem;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.containerTitle:hover {
+  border-bottom: 0.4rem solid #1874d0;
+}
+.link {
+  height: 2.8rem;
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  display: flex;
+  align-items: center;
+  color: #a3a3a3;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-decoration:none;
+}
+.link:hover {
+  color: #1874d0;
+}

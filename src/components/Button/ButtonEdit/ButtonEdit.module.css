@@ -1,0 +1,40 @@
+.button{
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 2rem
+    
+}
+.containerButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 2.0rem;
+    gap:.8rem;
+    cursor: pointer;
+    /* border-radius: 2rem */
+}
+.textButton{
+    font-weight: 500;
+    font-family: var(--fontA);
+    font-style: normal;
+}
+
+.sm{
+    padding: .7rem 1.5rem;
+    font-size: 1.2rem;
+}
+.md{
+    padding: .8rem 1.6rem;
+    font-size: 1.6rem;
+}
+
+.lg{
+    padding: 1rem 1.7rem;
+    font-size: 1.8rem;
+}
+
+.xl{
+    padding: 1.2rem 1.8rem;
+    font-size: 2rem;
+}

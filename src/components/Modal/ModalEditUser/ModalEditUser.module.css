@@ -1,0 +1,196 @@
+.sm {
+  width: 52rem;
+  height: 98.8rem;
+}
+.md {
+  width: 65rem;
+  height: 98.8rem;
+}
+.xl {
+  width: 66rem;
+  height: 98.8rem;
+}
+.modalContainer {
+  box-sizing: border-box;
+  position: relative;
+  left: 0rem;
+  right: 0rem;
+  top: 0rem;
+  bottom: 0rem;
+  /* Neutral/200 */
+  background-color: white;
+
+  border: 0.1rem solid #e5e5e5;
+  box-shadow: 0rem 1px 2px -1px rgba(0, 0, 0, 0.1),
+    0rem 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0.4rem;
+}
+.textHeader {
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.7rem;
+  /* identical to box height */
+
+  /* Neutral/900 */
+
+  color: var(--neutral900);
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+.containerTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  margin-left: 2.4rem;
+}
+.iconHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background: #ffedd5;
+
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.separationHeader {
+  position: relative;
+  width: 100%;
+  height: 0rem;
+  left: 0rem;
+  top: 1.6rem;
+  
+  border: 0.1rem solid #e5e5e5;
+}
+.typeUser {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem;
+  gap: 0.8rem;
+  margin: 2.4rem;
+  height: 54px;
+}
+.textTypeUser {
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  /* identical to box height */
+
+  /* Neutral/800 */
+  color: #262626;
+}
+.containerPersonalInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0rem;
+  gap: 1.6rem;
+  margin: 2.4rem;
+  margin-bottom: 3.2rem;
+}
+.personalInfoText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem;
+  gap: 27.7rem;
+}
+.title {
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #4b5563;
+}
+.infoReq {
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  /* identical to box height */
+
+  /* Neutral/500 */
+
+  color: #737373;
+}
+.profilePicture {
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  /* identical to box height */
+
+  /* Neutral/800 */
+
+  color: var(--neutral800);
+}
+.containerChangePicture {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem;
+  gap: 2.4rem;
+}
+.containerChangePictureBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0rem;
+  gap: 0.8rem;
+}
+.containerBirthdayPhone {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0rem;
+  gap: 1.6rem;
+}
+.accountInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0rem;
+  gap: 1.6rem;
+  margin: 2.4rem;
+  margin-bottom: 4.2rem;
+  margin-top: 3.2px;
+}
+
+.separationFooter {
+  position: relative;
+  width: 100%;
+  height: 0rem;
+  left: 0rem;
+  /* Neutral/200 */
+  border: 0.1rem solid var(--neutral200);
+}
+.buttonFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0rem;
+  gap: 0.8rem;
+
+  position: absolute;
+  width: 16.5rem;
+  right: 2.4rem;
+  bottom: 2.2rem;
+}

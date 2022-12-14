@@ -1,0 +1,19 @@
+.containerButton{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0.7111rem;
+    border-radius: 50%;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+.containerButton:hover{
+    background: #F3F4F6;
+}
+
+.propsIcon{
+    color:#A3A3A3;
+}
+.propsIcon:hover{
+    color: #F97316;
+}

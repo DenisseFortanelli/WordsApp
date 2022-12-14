@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.textSyle{
+    font-size:var(--body2);
+    font-family: var(--fontA);
+}
+
+.sm>p{
+    font-weight: 100;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+.md>p{
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+.lg>p{
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}
+.xl>p{
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+}

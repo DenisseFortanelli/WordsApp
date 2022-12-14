@@ -1,0 +1,26 @@
+.topImg {
+  box-sizing: border-box;
+  position: relative;
+  height: 20rem;
+  width:100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border: 0.1rem solid #d1d5db;
+  border-radius: 0.8rem;
+}
+.containerHeader {
+  position: relative;
+  height: 24rem;
+  width: 100%;
+}
+
+.containerAvatar {
+  max-width: 111.6rem;
+  padding-left: 2.6rem;
+  padding-top: 3.6rem;
+  position: absolute;
+  margin-top: -8%;
+}

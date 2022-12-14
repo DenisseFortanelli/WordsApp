@@ -1,0 +1,88 @@
+.sm{
+    width: 2.4rem;
+    height:2.4rem;
+    border-radius: 50%;
+    background-color: var(--orange500);
+}
+.sm>p{
+    color:var(--white);
+    font-size: var(--textXs);
+}
+.md{
+    width: 3.2rem;
+    height:3.2rem;
+    border-radius: 50%;
+    background-color: var(--orange500);
+}
+.md>p{
+    color:var(--white);
+    font-size: var(--small);
+}
+.lg{
+    width: 4rem;
+    height:4rem;
+    border-radius: 50%;
+    background-color: var(--orange500);
+}
+.lg>p{
+    color:var(--white);
+    font-size: var(--body2);
+}
+.xl{
+    width: 8rem;
+    height:8rem;
+    border-radius: 50%;
+    background-color: var(--orange500);
+}
+.xl>p{
+    color:var(--white);
+    font-size: var(--h2);
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.container>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.containerText{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem;
+    gap: 0.8rem;
+} 
+.createdBy{
+    width: 9.7rem;
+}
+.textCreateBy{
+    font-family: var(--fontA);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+
+    /* Neutral/800 */
+
+    color: var(--neutral800);
+
+}
+.textCreateByPerson{
+   
+    font-family: var(--fontA);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+
+    /* cool-gray/500 */
+
+    color: var(--gray500);
+}

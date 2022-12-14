@@ -1,0 +1,38 @@
+.containerNavBar {
+  /* Rectangle 3 */
+  box-sizing: border-box;
+
+  position: relative;
+  height: 6.4rem;
+  left: 0rem;
+  right: 0rem;
+  top: 0rem;
+
+  /* v1.5/white */
+  background: #ffffff;
+  /* v1.5/Gray/300 */
+
+  border-width: 0.1rem 0rem;
+  border-style: solid;
+  border-color: #d1d5db;
+}
+.linksContainer{
+  margin-left: 38.7%;
+}
+.shadow{
+  box-sizing: border-box;
+  width: 4rem;
+  position: absolute;
+  height: 4rem;
+  top: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: 96.2%;
+  margin-right: 2%;
+  box-shadow: 0rem 0.2rem 0.4rem -0.2rem rgba(0, 0, 0, 0.1), 0rem 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1);
+}
+.positionLanguageButton{
+  position: absolute;
+  top: 1.6rem;
+  margin-left: 86%;
+}

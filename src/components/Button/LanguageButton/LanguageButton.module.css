@@ -1,0 +1,44 @@
+.contenedorLanguage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 1rem 0rem 0rem;
+  /* position: absolute; */
+  width: 11.3rem;
+  height: 3.2rem;
+  right: 8.3rem;
+  top: 1.6rem;
+  background: #f3f4f6;
+  border-radius: 4rem;
+  cursor: pointer;
+}
+
+.textLanguage {
+  gap: 1rem;
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  border: 0 #f3f4f6;
+  background: #f3f4f6;
+  outline: none;
+
+}
+
+.iconStyles {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+}
+
+.options {
+  /* gap: 10px; */
+  font-family: var(--fontA);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  border: 0 #f3f4f6;
+  background: #f3f4f6;
+  
+}

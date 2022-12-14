@@ -1,0 +1,84 @@
+.container {
+  max-width: 111.6rem;
+  padding: 3.6rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.containerHeader {
+  position: relative;
+  height: 24rem;
+  width: 100%;
+}
+
+.containerCards {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0rem;
+  gap: 1.6rem;
+  margin-bottom: 2.6rem;
+}
+
+.containerBody {
+  max-width: 106.9rem;
+  padding-right: .2rem;
+  padding-left: 2.6rem;
+  margin: 0 auto;
+}
+
+.containerNewWords {
+  max-width: 106.9rem;
+  padding-right: 2.6rem;
+  padding-left: 2.6rem;
+  margin: 0 auto;
+  margin-top: 3.3rem;
+  
+}
+
+.containerCategories {
+  max-width: 106.9rem;
+  padding-right: 2.6rem;
+  padding-left: 2.6rem;
+  margin: 0 auto;
+  margin-top: 2.6rem;
+}
+
+.containerNameButtton {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 56.2%;
+}
+
+.containerTags {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.8rem;
+  margin-bottom: 2.7rem;
+}
+.spaceText {
+  position: relative;
+  width: 100%;
+  height: 0.1rem;
+  background: var(--gray300);
+}
+
+.titleHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem;
+  gap: 50%;
+  margin-bottom: 1.8rem;
+}
+
+.containerActions {
+
+  margin-top: 2.6rem;
+}
