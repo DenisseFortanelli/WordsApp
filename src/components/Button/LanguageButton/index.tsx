@@ -8,13 +8,13 @@ import { MouseEventHandler, ReactElement } from 'react';
 interface LanguageProps {
   icon?: string,
   flag: string | ReactElement | ReactElement[],
-  onClick?: MouseEventHandler<HTMLDialogElement>
+  onClick?: MouseEventHandler<HTMLDivElement>
 }
 
 const LanguageButton
-  = ({ icon, flag }: LanguageProps) => {
+  = ({ icon, flag,onClick }: LanguageProps) => {
     return (
-      <div className={styles.contenedorLanguage}>
+      <div role='button' onClick={onClick} className={styles.contenedorLanguage}>
         <div className={styles.iconStyles}>
 
           <Icon size='1.8rem' color='var(--neutral500)' customIcon={flag} />

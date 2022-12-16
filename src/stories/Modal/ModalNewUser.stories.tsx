@@ -1,6 +1,6 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import { MouseEvent} from 'react'
-import ModalNewUser from '../../components/Modal/ModalNewUser/ModalEditUser'
+import ModalNewUser from '../../components/Modal/ModalNewUser/ModalNewUser'
 
 export default {
     title:'Modal',

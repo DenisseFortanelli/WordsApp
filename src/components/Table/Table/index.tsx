@@ -8,9 +8,9 @@ import Th from './Th'
 import Thead from './Thead'
 import { Tr } from './Tr'
 import TFooter from './TFooter'
-import useTable from './hooks/userTable'
-import { User } from './Interface'
+import { User } from './interface'
 import styles from './Table.module.css'
+import useTable from './hooks/useTable';
 
 const Table = ({data, isLoading}:{data:User[], isLoading?:boolean}) => {
     
@@ -41,9 +41,9 @@ const Table = ({data, isLoading}:{data:User[], isLoading?:boolean}) => {
     }
 
 
-    /* useEffect(() => {
-        if(data!==undefined&&data!==null)setIsLoading(false)
-    }, [data]) */
+    // useEffect(() => {
+    //     if(data!==undefined&&data!==null)setIsLoading(false)
+    // }, [data])
 
     /* useEffect(() => {
         console.log(slice);

@@ -3,13 +3,44 @@ import styles from "./ModalNewUser.module.css";
 import Avatar from "../../Avatar";
 import { ModalContext } from '../index';
 import BasicBtn from "../../Button/BasicButton/BasicButton";
-import { useContext } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { ModalNew } from "./interface";
 import InputModal from "../../InputsModal/InputsModal";
 import ToggleButton from "../../Button/ToggleButton/ToggleButton";
+import { createUserData } from "../../../hooks/useUsers";
+import { IUser } from "../../../interface/FetchAllUserResponse";
 
 const ModalNewUser = ({ size, textHeader }: ModalNew) => {
+  const initialValue = {
+    birthday: '',
+    email: '',
+    name: '',
+    id: '',
+    lastname: '',
+    middlename: '',
+    second_lastname:'',
+    phone: '',
+    timezone: '',
+    language: '',
+    image:'',
+    is_admin:true
+  }
+  const [user, setUser] = useState<IUser>(initialValue)
+
   const { setIsOpenModal } = useContext(ModalContext)
+  const { mutate } = createUserData()
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    setUser(
+      { ...user, [e.target.name]: e.target.value }
+    )
+  }
+function handleSubmit() {
+  mutate(user)
+  setUser(initialValue)
+  setIsOpenModal(false)
+}
+
   return (
     <div
       className={`${styles[size]} ${styles.modalContainer}`}
@@ -49,21 +80,46 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
             />
           </div>
         </div>
-        <InputModal size="lg" type="text" text="Jose" textTitle="Name*" />
         <InputModal
+          onChange={handleChange}
+          name='name'
+          size="lg"
+          value={user.name}
+          type="text"
+          text="Jose"
+          textTitle="Name*" />
+        <InputModal
+          onChange={handleChange}
+          value={user.lastname}
+          name='lastname'
           size="lg"
           type="text"
           text="Ramirez"
           textTitle="Last Name*"
         />
+        <InputModal
+          onChange={handleChange}
+          name='middlename'
+          value={user.middlename}
+          size="lg"
+          type="text"
+          text="Ramirez"
+          textTitle="second last Name*"
+        />
         <div className={styles.containerBirthdayPhone}>
           <InputModal
+            onChange={handleChange}
+            name='birthday'
+            value={user.birthday}
             size="md"
             type="date"
             text="Ramirez"
             textTitle="Birthday"
           />
           <InputModal
+            onChange={handleChange}
+            name='phone'
+            value={user.phone}
             size="md"
             type="text"
             text="(442) 212 2365"
@@ -74,18 +130,27 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
       <div className={styles.accountInformation}>
         <p className={styles.title}>ACCOUNT INFORMATION</p>
         <InputModal
+          onChange={handleChange}
+          name='email'
+          value={user.email}
           size="lg"
           type="text"
           text="joss.ramirez@company.mx"
           textTitle="Email*"
         />
         <InputModal
+          onChange={handleChange}
+          name='timezone'
+          value={user.timezone}
           size="lg"
           type="text"
           text="Mexico City (GMT-5)"
           textTitle="Timezone"
         />
         <InputModal
+          onChange={handleChange}
+          name='language'
+          value={user.language}
           size="md"
           type="text"
           text="Mexico City (GMT-5)"
@@ -108,6 +173,7 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
           text="Cancel"
         />
         <BasicBtn
+          onClick={handleSubmit}
           size="sm"
           backgroundColor="var(--celeste700)"
           fontWeight={700}

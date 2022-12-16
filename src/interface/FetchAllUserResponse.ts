@@ -1,24 +1,25 @@
-// To parse this data:
-//
-//   import { Convert, Users } from "./file";
-//
-//   const users = Convert.toUsers(json);
-
 export interface Users {
-    map(arg0: (user: User) => JSX.Element): import("react").ReactNode;
-    data: User[];
+    data: IUser[];
 }
+/* export interface Image {
+    file_name:  string;
+    updated_at: string;
+} */
 
-export interface User {
-    date_of_birth:    string;
-    email:            string;
-    first_name:       string;
-    id:               number;
-    id_auth0:         string;
-    last_name:        string;
-    second_last_name: string;
-    second_name:      string;
-    telephone:        string;
+export interface IUser {
+    birthday: string;
+    email: string;
+    name: string;
+    id: string;
+    auth0_id?: string;
+    lastname: string;
+    middlename: string;
+    second_lastname:string
+    phone: string;
+    timezone: string;
+    language: string;
+    image?:string;
+    is_admin?:boolean;
 }
 
 // Converts JSON strings to/from your types

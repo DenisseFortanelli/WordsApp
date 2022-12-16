@@ -9,15 +9,16 @@ import { InputSearch } from "../components/InputSearchs/InputSearch";
 import Table from "../components/Table";
 import dataColumns from "../components/Table/data/dataTable.json";
 import Modal from "../components/Modal";
-import ModalNewUser from "../components/Modal/ModalNewUser/ModalEditUser";
+import ModalNewUser from "../components/Modal/ModalNewUser/ModalNewUser";
 import CardsTable from "../components/CardsUserTable/CardsUserTable";
 import { SelectAll } from "../components/Button/SelectAll/SelectAll";
 import { CreateMessage } from "../components/MessageNewUser";
+import { getUsersData } from "../hooks/useUsers";
 
 export const UsersPage = () => {
  
 
-  /*  const { data, isLoading, error, isError, isFetching, } = useQuery('useUsers', getUsers) */
+   const { data, isLoading, error, isError, isFetching, } = getUsersData();
   const { isAuthenticated } = useAuth0();
   const { isReady } = useContext(Context);
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -33,9 +34,11 @@ export const UsersPage = () => {
     console.log(isOpenModal)
   }, [isOpenModal])
   
-  if (!isReady) {
+
+  if (!isReady || isLoading || isFetching ) {
     return <></>;
   }
+  console.log(data)
 
 
   return (
@@ -82,7 +85,7 @@ export const UsersPage = () => {
         {
           show ?
             <div className={styles.containerTable}>
-              <Table data={dataColumns} />
+              <Table data={data} />
             </div>
             :
             <div className={styles.containerCard}>

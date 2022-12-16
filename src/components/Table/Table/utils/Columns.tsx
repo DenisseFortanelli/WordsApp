@@ -1,10 +1,11 @@
-import Avatar from "../../Avatar";
-import AvatarUsers from "../../AvatarUsers";
-import { RoundButton } from "../../Button/RoundButton/RoundButton";
-import TimeZone from "../../Typhography/TimeZone/TimeZone";
-import { ColumnsProps } from "../Interface";
+
+
+import { ColumnsProps } from "../interface";
 
 import styles from '../Table.module.css'
+import AvatarUsers from '../AvatarUsers/AvatarUsers';
+import TimeZone from '../TimeZone/TimeZone';
+import { RoundButton } from "../../../Button/RoundButton/RoundButton";
 
 export const columns:ColumnsProps[] = [
     {
@@ -47,7 +48,7 @@ export const columns:ColumnsProps[] = [
         field:'Timezone',
         headerName:'Timezone',
         width:'23%',
-        renderCell: (params, action)=><div className={styles.styleBody}><TimeZone size="md" time={params.timezone} zone={params.timezone}/></div>
+        renderCell: (params, action)=><div className={styles.styleBody}><TimeZone size="md" timezone={params.timezone}/></div>
     }
     ,
     {
@@ -57,4 +58,3 @@ export const columns:ColumnsProps[] = [
         renderCell: (params, action)=><div className={styles.containerAvatar}><RoundButton iconName='DotsThree'/></div>
     }
 ]
-
