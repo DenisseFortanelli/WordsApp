@@ -7,18 +7,18 @@ export interface Users {
 } */
 
 export interface IUser {
-    birthday: string;
-    email: string;
-    name: string;
-    id: string;
+    birthday?: string;
+    email?: string;
+    name?: string;
+    id?: string;
     auth0_id?: string;
-    lastname: string;
-    middlename: string;
-    second_lastname:string
-    phone: string;
-    timezone: string;
-    language: string;
-    image?:string;
+    lastname?: string;
+    middlename?: string;
+    second_lastname?:string
+    phone?: string;
+    timezone?: string;
+    language?: string;
+    /* image?:string;*/
     is_admin?:boolean;
 }
 

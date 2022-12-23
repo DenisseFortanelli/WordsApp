@@ -66,3 +66,21 @@
 	box-shadow: 0rem 0.8rem 1.5rem rgba(0, 0, 0, 0.1);
 	z-index: 99;
 }
+.trashBtn {
+  position: relative;
+  justify-content: center;
+  margin-top: 6px;
+  padding-left: 40%;
+  gap: 10;
+}
+
+
+.deleteModal {
+  z-index: 110;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	margin-top: 25rem;
+	margin-bottom: 40%;
+}

@@ -4,15 +4,17 @@ import styles from './TimeZone.module.css'
 import { TimeZoneProps } from './interface'
 
 
-const TimeZone = ({time, zone}:TimeZoneProps) => {
+const TimeZone = ({time}:TimeZoneProps) => {
+    
+    const resp = time?.split('/')
     
     return (
         
         <div className={styles.containerText}>
         <div className={styles.space}>
         <div className={styles.createBy}>
-        <p className={styles.textCreateBy}>{time}</p>
-        <p className={styles.textCreateByPerson}>{zone}</p>
+        <p className={styles.textCreateBy}>{resp[0]}</p>
+        <p className={styles.textCreateByPerson}>{resp[1]}</p>
         </div>
         </div>
         </div>

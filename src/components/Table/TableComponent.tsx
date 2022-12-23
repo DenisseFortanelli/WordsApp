@@ -1,5 +1,4 @@
-import React, { CSSProperties, ReactElement } from 'react'
-
+import { CSSProperties, ReactElement } from 'react'
 import styles from './Table.module.css'
 
 const TableComponent = ({children, style}:{children:ReactElement|ReactElement[], style?:CSSProperties}) => {

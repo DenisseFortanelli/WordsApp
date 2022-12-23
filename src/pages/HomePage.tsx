@@ -17,12 +17,12 @@ import OptionsHome from '../components/PaginationHome/OptionHome';
 export const HomePage = () => {
 
   const { isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
+  const [isOpenModal, setIsOpenModal] = useState(false)
 
   useEffect(() => {
     console.log('isLoading')
   }, [isLoading])
-
-  const [isOpenModal, setIsOpenModal] = useState(false)
 
   useEffect(() => {
     console.log(isOpenModal)
@@ -40,9 +40,9 @@ export const HomePage = () => {
           </div>
           <div className={styles.containerBody}>
             <div className={styles.containerNameButtton}>
-              <H2 variant="bold">Diego Antonio Juarez</H2>
+              <H2 variant="bold">{user?.name}</H2>
               <ButtonEdit
-                onClick={() => { setIsOpenModal(true) }}
+                /* onClick={() => { setIsOpenModal(true) }} */
                 size="md"
                 text="Edit User"
                 backgroundColor="var(--celeste600)"
@@ -54,7 +54,7 @@ export const HomePage = () => {
               <Tags
                 icon="EnvelopeSimple"
                 size="md"
-                text="isabella@bluepixel.mx"
+                text={user?.email}
                 backgroundColor="var(--neutral500)"
               />
               <Tags
@@ -157,12 +157,12 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-      <Modal callback={(Open) => setIsOpenModal(Open)} isOpen={isOpenModal}>
+      {/* <Modal callback={(Open) => setIsOpenModal(Open)} isOpen={isOpenModal}>
         <ModalEditUser
           size='md'
           textHeader='Edit User'
         />
-      </Modal>
+      </Modal> */}
     </>
   );
 };

@@ -10,14 +10,13 @@ interface ModalContextProps {
 export const ModalContext = createContext({} as ModalContextProps)
 const { Provider } = ModalContext
 
-export const Modal = ({ children, isOpen, callback }: ModalProps) => {
+export const Modal = ({ children, isOpen, callback, setIsOpen }: ModalProps) => {
 
 	const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
 
 	const handleClick = (e: MouseEvent) => {
-
 		const { id } = e.target as HTMLDivElement
-		if (id === 'overlayModal') setIsOpenModal(false)
+		if (setIsOpen && id === 'overlayModal') return setIsOpen(false)
 	}
 
 	useEffect(() => {
@@ -29,12 +28,9 @@ export const Modal = ({ children, isOpen, callback }: ModalProps) => {
 	}, [isOpenModal])
 
 	useEffect(() => {
-
 		document.addEventListener('click', handleClick)
 		return () => document.removeEventListener('click', handleClick)
 	}, [])
-
-
 
 	return (
 		<Provider value={{ setIsOpenModal }}>

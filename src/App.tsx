@@ -27,6 +27,7 @@ export const App = () => {
   }, [])
   
   return (
+    <QueryClientProvider client={new QueryClient()}>
     <Auth0Provider
       clientId={clientId}
       domain={domain}
@@ -37,11 +38,10 @@ export const App = () => {
     >
       <ContextProvider>
         <BrowserRouter>
-          <QueryClientProvider client={new QueryClient()}>
             <RouterApp />
-          </QueryClientProvider>
         </BrowserRouter>
       </ContextProvider>
     </Auth0Provider>
+          </QueryClientProvider>
   )
 }

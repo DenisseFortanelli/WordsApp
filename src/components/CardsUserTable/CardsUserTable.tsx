@@ -15,7 +15,8 @@ const CardsTable = ({ checked,hasCheckBox, email, name, onClick, phone, country 
 	useEffect(() => {
 	  setisChecked(checked)
 	}, [checked])
-	
+
+	const resp = country?.split('/')
 
 	return (
 		<div className={styles.cardsContainer} >
@@ -49,7 +50,7 @@ const CardsTable = ({ checked,hasCheckBox, email, name, onClick, phone, country 
 					<br />
 					<Tags
 						size="md"
-						text={country}
+						text={resp&&resp[0]}
 						backgroundColor="var(--neutral500)"
 					/>
 				</div>

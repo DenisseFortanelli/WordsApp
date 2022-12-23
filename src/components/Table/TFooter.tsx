@@ -1,16 +1,16 @@
 import { CaretLeft, CaretRight } from 'phosphor-react'
 import { useEffect } from 'react'
-import { TableFooterProps } from './Interface'
+import { TableFooterProps } from './interface'
 
 import styles from './Table.module.css'
 
-const TFooter =  <T extends object>({ range, setPage, page, slice, callBack, data }:TableFooterProps<T>) => {
+const TFooter =  <T extends object>({ range, setPage, page, slice, callBack, totalItems, setRowsPerPage }:TableFooterProps<T>) => {
 
-    useEffect(() => {
+    /* useEffect(() => {
         if (slice.length < 1 && page !== 1) {
             setPage(page - 1)
         }
-    }, [slice, page, setPage])
+    }, [slice, page, setPage]) */
 
     return (
         <div className={styles.footerContainer}>
@@ -18,21 +18,22 @@ const TFooter =  <T extends object>({ range, setPage, page, slice, callBack, dat
                 className={styles.selectContainer}
             >
                 <p className={styles.textRowsPage}>Rows per page</p>
-                <select onChange={(e)=>callBack(Number(e.target.value))} className={styles.numFooter}>
+                <select onChange={(e)=>setRowsPerPage(e.target.value)} className={styles.numFooter}>
+                    
                     <option>
                         5
                     </option>
                     <option>
-                        10 
+                        10
                     </option>
                     <option>
                         15
                     </option>
-                    
+                  
                 </select>
             </div>
             <div className={styles.footerShowing}>
-                <p className={styles.textShowing}>{`Showing ${slice.length} of ${data.length} Results`}</p>
+                <p className={styles.textShowing}>{`Showing ${slice.length} of ${totalItems} Results`}</p>
             </div>
             <div className={styles.stylePagination}>
                 <div onClick={()=>setPage(page>1?(page-1):page)}>

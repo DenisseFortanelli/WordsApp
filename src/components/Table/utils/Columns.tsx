@@ -1,17 +1,16 @@
-import Avatar from "../../Avatar";
 import AvatarUsers from "../../AvatarUsers";
-import { RoundButton } from "../../Button/RoundButton/RoundButton";
-import TimeZone from "../../Typhography/TimeZone/TimeZone";
-import { ColumnsProps } from "../Interface";
-
+import { ModalButton } from "../../Button/ModalButton/ModalButton";
+import { CheckBox } from "../../CheckBox/CheckBox";
+import TimeZone from "../../TimeZone/TimeZone";
+import { ColumnsProps, User } from "../interface";
 import styles from '../Table.module.css'
 
 export const columns:ColumnsProps[] = [
     {
-        field:'check',
-        headerName:'check',
-        width:'5%',
-        renderCell: (params, action)=><input className={styles.input} type='checkbox' defaultChecked={params.check} onChange={(e)=>action(e)}/>
+        field: 'check',
+        headerName: 'check',
+        width: '5%',
+        renderCell: (params, action) => <CheckBox user={params as User} onChange={(e) => action(e, params as User)} defaultChecked={params.check} />
     },
     {
         field:'user',
@@ -54,7 +53,7 @@ export const columns:ColumnsProps[] = [
         field:'actions',
         headerName:'',
         width:'3%',
-        renderCell: (params, action)=><div className={styles.containerAvatar}><RoundButton iconName='DotsThree'/></div>
+        renderCell: (params, action)=><div className={styles.containerAvatar}><ModalButton
+        iconName="DotsThree" user={params as User}/></div>
     }
 ]
-

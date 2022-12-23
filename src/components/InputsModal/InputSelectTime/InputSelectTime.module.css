@@ -1,0 +1,81 @@
+.sm {
+	width: 28.8rem;
+	height: 4.2rem;
+	border-radius: 0.4rem;
+}
+
+.sm>.contenido {
+	width: 28.8rem;
+	height: 3.8rem;
+	border-radius: 0.4rem;
+	outline: none;
+	border: 0 currentColor var(--white);
+	font-family: var(--fontA);
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: var(--neutral800);
+}
+.xl {
+
+	width: 59.2rem;
+	height: 4.2rem;
+	border-radius: 0.4rem;
+}
+
+
+.xl>.contenido {
+	width: 59.2rem;
+	height: 3.8rem;
+	border-radius: 0.4rem;
+	outline: none;
+	border: 0 currentColor var(--white);
+	font-family: var(--fontA);
+	font-size: 1.6rem;
+	font-weight: 400;
+	color: var(--neutral800);
+
+}
+
+.borders {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	line-height: 2rem;
+	color: #6B7280;
+	padding: 1rem;
+	outline: none;
+	background: var(--white);
+	border: 0.1rem solid var(--neutral300);
+}
+
+.contenido {
+	background: var(--white);
+	padding: 0.5rem;
+	outline: none;
+	font-family: var(--fontA);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 2rem;
+}
+.contenidoOne {
+	color: var(--gray900);
+	background: var(--white);
+	padding: 0.5rem;
+	outline: none;
+	font-family: var(--fontA);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 2rem;
+}
+
+.textTitle {
+	margin-bottom: 0.6rem;
+	font-family: var(--fontA);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.4rem;
+	line-height: 1.9rem;
+	color: var(--neutral800);
+}
