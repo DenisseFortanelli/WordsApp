@@ -7,5 +7,6 @@ export interface BasicButton{
     fontWeight?:number,
     colorText?:string,
     text?:string,
+    type?:'submit',
     onClick?:MouseEventHandler<HTMLButtonElement>,
 }

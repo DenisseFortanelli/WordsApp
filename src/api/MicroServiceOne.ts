@@ -13,6 +13,12 @@ export const getUsers = async ({page,rowsPerPage}:any) => {
 	return resp
 }
 
+export const getSearchUsers = async ({user}:any) => {
+	const response = await axios.get(`${import.meta.env.VITE_API_BACKEND}/search?name=${user}`)
+	const resp = (response.data)
+	return resp
+}
+
 export const createUsers = async (user: IUser) => {
 	const response = await axios.post(`${import.meta.env.VITE_API_BACKEND}/users`,
 		user
@@ -27,8 +33,9 @@ export const updateUsers = async (user: IUser) => {
 	return response.data
 };
 
+
 export const deleteUsers = async (user: IUser) => {
-	const response = await axios.delete(`${import.meta.env.VITE_API_BACKEND}/users/${user.id}`)
-	const resp = (response.data)
-	return resp
-}
+	const response = await axios.delete(`${import.meta.env.VITE_API_BACKEND}/users/${user.id}`,
+	)
+	return response.data
+};

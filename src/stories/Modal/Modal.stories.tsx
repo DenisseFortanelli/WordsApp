@@ -22,6 +22,7 @@ export const ModalComponent = Template.bind({})
 ModalComponent.args = {
 	children:
 		<ModalEditUser
+            user={User}
 			size='md'
 			textHeader='Edit User'
 		/>,

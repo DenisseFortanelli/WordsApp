@@ -18,7 +18,7 @@ export interface IUser {
     phone?: string;
     timezone?: string;
     language?: string;
-    /* image?:string;*/
+    image?:string;
     is_admin?:boolean;
 }
 

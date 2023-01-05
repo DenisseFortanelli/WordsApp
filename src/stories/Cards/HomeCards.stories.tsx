@@ -19,8 +19,6 @@ const Template:ComponentStory<typeof HomeCards> = (args) => {
 
 export const HomeCardsComponent = Template.bind({})
 HomeCardsComponent.args={
-    
     header:'Adjectival',
     body:'A business unit is an independent entity within an organization, such as companies or locations. BUscan establish their own workspace and buy ...',
-    onClick:handleClick,
 }

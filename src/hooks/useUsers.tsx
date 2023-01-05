@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { createUsers, getUsers, getUsersCards, updateUsers, deleteUsers} from '../api/MicroServiceOne';
+import { createUsers, getUsers, getUsersCards, updateUsers, deleteUsers, getSearchUsers} from '../api/MicroServiceOne';
 
  export function getUsersDataCards (){
     return useQuery('usersCards',getUsersCards,{
@@ -9,6 +9,14 @@ import { createUsers, getUsers, getUsersCards, updateUsers, deleteUsers} from '.
  
 export function getUsersData({page,rowsPerPage}:any) {
 	return useQuery('users',()=> getUsers({page,rowsPerPage}), {
+		cacheTime:0, staleTime:0
+	})
+}
+
+//Método para buscar usuarios
+export function searchUsersData({user}:any){
+	return useQuery('searchUsers',()=> getSearchUsers({user}),{
+		
 	})
 }
 
@@ -47,10 +55,16 @@ export function updateUserData() {
 
 // Metodo para eliminar usuario
 export function deleteUserData() {
-	const QueryClient = useQueryClient()
+	const queryClient = useQueryClient()
 	return useMutation(deleteUsers, {
 		onSuccess: async () => {
-			await QueryClient.invalidateQueries('users')
+			await queryClient.invalidateQueries({
+				queryKey: ['users']
+			})
+
+			await queryClient.invalidateQueries({
+				queryKey: ['usersCards']
+			})
 		}
 	})
 }

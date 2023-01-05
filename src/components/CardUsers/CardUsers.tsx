@@ -32,7 +32,7 @@ const CardUser = ({ name,email,phone,country }: CardUsers) => {
           text={phone}
           backgroundColor="var(--neutral500)"
         />
-        
+        <br />
         <Infoframe
           size="md"
           text={country}

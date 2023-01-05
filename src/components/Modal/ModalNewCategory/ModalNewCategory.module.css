@@ -1,0 +1,31 @@
+  .modalContainer {
+      box-sizing: border-box;
+      height: 49.9rem;
+      width: 64rem;
+      position: absolute;
+      left: 0rem;
+      right: 0rem;
+      top: 0rem;
+      bottom: 0rem;
+
+      background: #FFFFFF;
+
+      border: 0.1rem solid var(--neutral200);
+      box-shadow: 0rem 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.1), 0rem 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+      border-radius: 0.4rem;
+  }
+  .headerTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .containerTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0rem;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    margin-left: 2.4rem;
+  }

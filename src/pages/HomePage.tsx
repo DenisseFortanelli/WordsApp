@@ -40,7 +40,7 @@ export const HomePage = () => {
           </div>
           <div className={styles.containerBody}>
             <div className={styles.containerNameButtton}>
-              <H2 variant="bold">{user?.name}</H2>
+              <H2 variant="bold">Denisse Fortanelli</H2>
               <ButtonEdit
                 /* onClick={() => { setIsOpenModal(true) }} */
                 size="md"
@@ -54,7 +54,7 @@ export const HomePage = () => {
               <Tags
                 icon="EnvelopeSimple"
                 size="md"
-                text={user?.email}
+                text="denissefortanelli1402@gmail.com"
                 backgroundColor="var(--neutral500)"
               />
               <Tags

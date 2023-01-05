@@ -6,17 +6,22 @@ import Tags from '../Tags/Tagsframe';
 import styles from './CardTable.module.css'
 import { CardTableProps } from './Interface';
 
-const CardsTable = ({ checked,hasCheckBox, email, name, onClick, phone, country }:CardTableProps ) => {
-	
+const CardsTable = ({ checked, hasCheckBox, email, name, onClick, phone, country }: CardTableProps) => {
+
 	const [isChecked, setisChecked] = useState(checked)
-	const handlerCheck=(e:ChangeEvent<HTMLInputElement>)=>{
+	const handlerCheck = (e: ChangeEvent<HTMLInputElement>) => {
 		setisChecked(e.target.checked)
 	}
 	useEffect(() => {
-	  setisChecked(checked)
+		setisChecked(checked)
 	}, [checked])
 
-	const resp = country?.split('/')
+	const resp = country?.split(' ')
+
+	const first = country?.indexOf('/')
+	const second = country?.indexOf(') ')
+	const good = country?.slice(second, first).slice(1,-1) //construye el arreglo conforme a los index y quita el parentesis
+	
 
 	return (
 		<div className={styles.cardsContainer} >
@@ -40,7 +45,8 @@ const CardsTable = ({ checked,hasCheckBox, email, name, onClick, phone, country 
 				</div>
 				<div className={styles.line}></div>
 
-				<div className={styles.footer}>
+				<div className={styles.alignfooter}>
+				<div className={styles.containerHeader}>
 					<Tags
 						icon="Phone"
 						size="md"
@@ -50,9 +56,10 @@ const CardsTable = ({ checked,hasCheckBox, email, name, onClick, phone, country 
 					<br />
 					<Tags
 						size="md"
-						text={resp&&resp[0]}
+						text={`${good} ${resp && resp[0]}`}
 						backgroundColor="var(--neutral500)"
 					/>
+				</div>
 				</div>
 			</div>
 		</div>

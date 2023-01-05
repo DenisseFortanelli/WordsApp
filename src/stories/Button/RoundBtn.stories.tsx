@@ -1,20 +1,20 @@
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import { MouseEvent} from 'react'
-import { RoundButton } from '../../components/Button/RoundButton/RoundButton';
+import { RoundBtn } from '../../components/Button/RoundButton/RoundButton';
 
 export default {
     title:'Button',
-    component: RoundButton
-} as ComponentMeta<typeof RoundButton>
+    component: RoundBtn
+} as ComponentMeta<typeof RoundBtn>
 
 const handleClick = (e: MouseEvent<HTMLButtonElement>)=>{
     console.log(e);
     
 }
 
-const Template:ComponentStory<typeof RoundButton> = (args) => {
+const Template:ComponentStory<typeof RoundBtn> = (args) => {
 
-    return<RoundButton {...args}/>
+    return<RoundBtn {...args}/>
 }
 
 export const RoundButtonComponent = Template.bind({})

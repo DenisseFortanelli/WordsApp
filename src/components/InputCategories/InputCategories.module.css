@@ -1,0 +1,63 @@
+.multiSelect{
+	position: relative;
+
+}
+.containerSelect {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.8rem;
+	padding: 1rem;
+	background-color: white;
+	border: 1px solid var(--slate200);
+	border-radius: .4rem;
+
+}
+.containerSelect>p{
+	font-family: var(--fontA);
+font-style: normal;
+font-weight: 400;
+font-size: 1.4rem;
+}
+
+
+.badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	/* v1.5/Blue/500 */
+
+	background: var(--blue500);
+}
+
+.badge>p {
+	color: white;
+	font-family: var(--fontA);
+	font-style: normal;
+	font-weight: 600;
+	font-size: 0.96rem;
+}
+.dropdown{
+	position: absolute;
+	min-height: 2.4rem;
+	background-color: white;
+	border-radius: .4rem;
+	left: 0;
+	top: 4.4rem;
+}
+.containerItem{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.8rem;
+	padding: 0.8rem 1.6rem;
+	min-width: 22.4rem;
+}
+.firstSelectedItem{
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

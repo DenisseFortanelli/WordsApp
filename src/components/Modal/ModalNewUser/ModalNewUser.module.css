@@ -5,7 +5,7 @@
 
 .md {
   width: 65rem;
-  height: 98.8rem;
+  height: 111rem;
 }
 
 .xl {
@@ -67,6 +67,7 @@
   width: 100%;
   height: 0rem;
   left: 0rem;
+  margin-bottom: 3.7rem;
   top: 1.6rem;
   border: 1px solid #e5e5e5;
 }
@@ -107,7 +108,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0rem;
-  gap: 27.7rem;
+  gap: 28.5rem;
 }
 
 .title {
@@ -168,7 +169,7 @@
   padding: 0rem;
   gap: 1.6rem;
   margin: 2.4rem;
-  margin-bottom: 5.2rem;
+  margin-bottom: 4.2rem;
   margin-top: 3.2px;
 }
 
@@ -186,17 +187,16 @@
   align-items: flex-start;
   gap: 0.8rem;
   position: absolute;
-  width: 16.5rem;
   right: 2.4rem;
-  bottom: 2.2rem;
+  bottom: 1.6rem;
 }
 
 .inputContainer {
-  position: relative;
+  position: relaive;
   display: flex;
   align-items: center;
   margin-left: 2.4rem;
-  margin-top: 2rem;
+  margin-top: 3.5rem;
   margin-bottom: 2.7rem;
   gap: 0.8rem;
 }
@@ -227,4 +227,21 @@
   font-size: 1.4rem;
   line-height: 1.9rem;
   color: var(--neutral800);
+}
+.headerTitle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.closeIcon{
+  margin-top: 2rem;
+  margin-left: 45rem;
+  margin-right: 29.25px;
+  color: var(--neutral500);
+  cursor: pointer;
+}
+.closeIcon:hover{
+  color: var(--orange500);
+  cursor: pointer;
 }

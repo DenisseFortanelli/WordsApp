@@ -27,19 +27,19 @@ export const columns:ColumnsProps[] = [
     {
         field:'phone',
         headerName:'Phone',
-        width:'19%',
+        width:'13%',
         renderCell: (params, action)=><p className={styles.styleBody}>{params.phone}</p>
     },
     {
         field:'birthday',
         headerName:'Birthday',
-        width:'13%',
+        width:'10%',
         renderCell: (params, action)=><p className={styles.styleBody}>{params.birthday}</p>
     },
     {
         field:'language',
         headerName:'Language',
-        width:'14%',
+        width:'10%',
         renderCell: (params, action)=><p className={styles.styleBody}>{params.language}</p>
     },
     {
@@ -54,6 +54,6 @@ export const columns:ColumnsProps[] = [
         headerName:'',
         width:'3%',
         renderCell: (params, action)=><div className={styles.containerAvatar}><ModalButton
-        iconName="DotsThree" user={params as User}/></div>
+        iconName="Pencil" user={params as User}/></div>
     }
 ]

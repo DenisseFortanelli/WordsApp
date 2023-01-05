@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 19.8rem;
+    height: 4rem;
+    justify-content: space-between;
+    background-color: var(--gray100);
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.containerTwo {
+    width: 9.9rem;
+    position: relative;
+    z-index: 20;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-left: 3rem ; */
+    background-color: transparent;
+}
+
+.containerThree {
+    width: 9.9rem;
+    position: absolute;
+    z-index: 10;
+    height: 3.5rem;
+    border-radius: 2rem;
+    background-color: white;
+    top: 0.2rem;
+    left: .3rem;
+    transition: all .5s ease;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding:  0px;
+}

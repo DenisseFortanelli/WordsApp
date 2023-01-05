@@ -19,5 +19,6 @@ const Template: ComponentStory<typeof SelectAll> = (args) => {
 
 export const SelectAllComponent = Template.bind({})
 SelectAllComponent.args = {
-	onClick: handleClick
+	onClick: handleClick,
+	isChecked:()=>{}
 }

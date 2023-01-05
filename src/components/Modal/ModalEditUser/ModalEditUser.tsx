@@ -1,4 +1,4 @@
-import { PencilSimple, User } from "phosphor-react";
+import { PencilSimple, User, X } from "phosphor-react";
 import styles from "./ModalEditUser.module.css";
 import Avatar from "../../Avatar";
 import BasicBtn from "../../Button/BasicButton/BasicButton";
@@ -12,23 +12,24 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { IUser } from "../../../interface/FetchAllUserResponse";
 import { InputSelectTime } from "../../InputsModal/InputSelectTime/InputSelectTime";
 import { InputSelectIdiom } from "../../InputsModal/InputSelectIdioms/InputSelectIdioms";
-import { TableContext } from "../../../pages/UsersPage";
+import { TableContext } from "../../../context/TableContext";
+
 
 const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps) => {
 
   const initialValue = {
     auth0_id: '',
     birthday: '',
-    email:    '',
-    id:       '',
-    /* image:    Image;*/
+    email: '',
+    id: '',
+    image: '',
     is_admin: true,
     language: '',
     lastname: '',
-    middlename:'',
-    name:     '',
-    phone:    '',
-    timezone:  '',
+    middlename: '',
+    name: '',
+    phone: '',
+    timezone: '',
   }
 
   const [user, setUser] = useState<IUser>(originalUser ?? initialValue)
@@ -44,9 +45,15 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
   }
 
   function handleSubmit() {
-    mutate(user)
+    mutate({...user, is_admin: user.is_admin})
     setUser(initialValue)
     setIsOpenModalEditUser(false)
+  }
+
+  function handleTypeUserChange({isActive}:{isActive: boolean}){
+    console.log('handleType',isActive);
+    setUser({...user, is_admin: isActive})
+    
   }
 
   return (
@@ -54,18 +61,23 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
       className={`${styles[size]} ${styles.modalContainer}`}
     >
 
-      <div className={styles.containerTitle}>
-        <div className={styles.iconHeader}>
-          <User size="1.6rem" color="#F97316" />
+      <div className={styles.headerTitle}>
+        <div className={styles.containerTitle}>
+          <div className={styles.iconHeader}>
+            <User size="1.6rem" color="#F97316" />
+          </div>
+          <p className={styles.textHeader}>{textHeader}</p>
         </div>
-        <p className={styles.textHeader}>{textHeader}</p>
+        <div className={styles.closeIcon}>
+          <X size='2.3rem' onClick={() => setIsOpenModalEditUser(false)} />
+        </div>
       </div>
       <div className={styles.separationHeader}></div>
       <div className={styles.typeUser}>
         <div className={styles.textTypeUser}>
           What type of user do you want to create?
         </div>
-        <ToggleButton values={['Admin', 'Editor']} />
+        <ToggleButton values={['Admin', 'Editor']} onChange={handleTypeUserChange} />
       </div>
       <div className={styles.containerPersonalInformation}>
         <div className={styles.personalInfoText}>
@@ -137,6 +149,7 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
             type="date"
             placeholder='22 Nov 1990'
             textTitle="Birthday"
+            subText=" (Optional)"
           />
           <InputModal
             value={user.phone}
@@ -162,6 +175,7 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
           type="text"
           placeholder='joss.reamirez@company.mx'
           textTitle="Email*"
+          disabled={true}
         />
         <InputSelectTime
           onChange={handleChange}
@@ -169,14 +183,14 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
           value={user.timezone}
           size="xl"
           textTitle="Timezone*"
-          />
-          <InputSelectIdiom
+        />
+        <InputSelectIdiom
           onChange={handleChange}
           name='language'
           value={user.language}
           size="sm"
           textTitle="Language*"
-          />
+        />
 
       </div>
 

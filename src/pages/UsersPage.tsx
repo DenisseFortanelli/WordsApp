@@ -14,60 +14,58 @@ import { getUsersDataCards } from "../hooks/useUsers";
 import { RoundBtn } from "../components/Button/RoundButton/RoundButton";
 import Table from "../components/Table";
 import { User } from "../components/Table/interface";
-import ModalDelete from "../components/Modal/ModalDelete/ModalDelete";
 import { BtnDeleteUser } from "../components/Button/BtnDeleteUser/BtnDeleteUser";
+import ModalDelete from "../components/Modal/ModalDelete/ModalDelete";
+import { TableContext } from "../context/TableContext";
 
-interface TableContextProps {
-  currentUser: User | undefined;
-  setCurrentUser: React.Dispatch<React.SetStateAction<User | undefined>>;
-  isOpenModalEditUser: boolean;
-  setIsOpenModalEditUser: React.Dispatch<React.SetStateAction<boolean>>;
-  deleteUser: User | undefined;
-  setDeleteUser: React.Dispatch<React.SetStateAction<User | undefined>>;
-}
-
-export const TableContext = createContext<TableContextProps>(
-  {} as TableContextProps
-);
-const TableProvider = TableContext.Provider;
 
 export const UsersPage = () => {
-  const [isOpenModalEditUser, setIsOpenModalEditUser] = useState(false);
-  const [deleteUser, setDeleteUser] = useState<User>();
-  const [currentUser, setCurrentUser] = useState<User>();
-  const [OpenModalDeleteUser, setOpenModalDeleteUser] = useState(false)
-  const { data } = getUsersDataCards();
-  const { isAuthenticated } = useAuth0();
+  const { state } = useContext(TableContext)
+  const { deleteUser } = state
+  const [isOpenModalNewUser, setOpenModalNewUser] = useState<boolean>(false);
+  const [Message, setMessage] = useState(false)
+  const [OpenModalDeleteUser, setIsOpenModalDeleteUser] = useState<boolean>(false)
+  const [show, setShow] = useState<boolean>(true);
+  const [checkAll, setcheckAll] = useState<boolean>(false);
   const { isReady } = useContext(Context);
-  const [isOpenModalNewUser, setOpenModalNewUser] = useState(false);
-  const [show, setShow] = useState(true);
-  const [checkAll, setcheckAll] = useState(false);
+  const { isAuthenticated } = useAuth0();
+  const { data, refetch } = getUsersDataCards();
+
+ /*  const initialValue = {
+    name: ''
+  }
+  const [user, setUser] = useState({name:'denisse'})
+  const { data, refetch, isLoading, isFetching } = searchUsersData(user);
+  
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+     setUser(
+      { ...user, [e.target.name]: e.target.value }
+    ) 
+    setUser(initialValue)
+    console.log(user)
+  } */
 
   useEffect(() => {
-    // if
-    isAuthenticated;
-  }, [isAuthenticated, isReady]);
+      !isOpenModalNewUser
+                ?
+                null
+                :
+      setMessage(true)
+
+    
+  }, [ isOpenModalNewUser])
+  
 
   useEffect(() => {
-    console.log(isOpenModalEditUser)
-  }, [isOpenModalEditUser]);
+  }, [show]);
 
   if (!isReady) {
     return <></>;
   }
-  /* console.log(data) */
 
   return (
-    <TableProvider
-      value={{
-        currentUser,
-        setCurrentUser,
-        isOpenModalEditUser,
-        setIsOpenModalEditUser,
-        deleteUser,
-        setDeleteUser,
-      }}
-    >
+    <>
       <div style={{ backgroundColor: "#F8FAFC" }}>
         <div className={styles.containerUser}>
           <div className={styles.containerHeaderUsers}>
@@ -89,42 +87,59 @@ export const UsersPage = () => {
           <div className={styles.containerSearch}>
             <InputSearch
               size="md"
+              background="var(--slate100)"
               type="text"
               text="Search Users by name or keyword..."
               icon="MagnifyingGlass"
-              onChange={() => {}}
+              onChange={() => { }}
             />
-            <div className={styles.trashBtn}>
-              {
-                deleteUser && <BtnDeleteUser iconName="Trash" onClick={() => setOpenModalDeleteUser(true)} />
-              }
-            </div>
             <div className={styles.roundsButton}>
-            
-            {
-            show
-            ?
-            null:
-            <SelectAll isChecked={(checked)=>setcheckAll(checked)}/>
-          }
-            <RoundBtn iconName="ListBullets" onClick={() => setShow(true)} />
+              {
+                deleteUser && <BtnDeleteUser iconName="Trash" onClick={() => setIsOpenModalDeleteUser(true)} />
+
+              }
+              {
+                show
+                  ?
+                  null :
+                  <SelectAll isChecked={(checked) => setcheckAll(checked)} />
+              }
+              <RoundBtn
+                iconName="ListDashes"
+                onClick={() => setShow(true)}
+                weight="regular"
+                height={2}
+                width={2}
+                padding={0.6}
+              />
               <RoundBtn
                 iconName="SquaresFour"
                 onClick={(show) => setShow(!show)}
+                weight="regular"
+                height={2}
+                width={2}
+                padding={0.6}
               />
-            <div style={{ marginLeft: 24 }}>
-              <RoundBtn iconName="DotsThree" />
+              <div style={{ marginLeft: 24 }}>
+                <RoundBtn
+                  iconName="DotsThree"
+                  weight="bold"
+                  height={2.5}
+                  width={2.5}
+                  padding={0.3}
+                />
+              </div>
+
             </div>
-          </div>
           </div>
 
           {show ? (
             <div className={styles.containerTable}>
-              <Table/>
+              <Table />
             </div>
           ) : (
             <div className={styles.containerCard}>
-              {data! &&
+              {data &&
                 data.users.map((item: User) => (
                   <CardsTable
                     key={item.id}
@@ -138,9 +153,12 @@ export const UsersPage = () => {
             </div>
           )}
         </div>
-        <div className={styles.floatingBtn}>
-          <CreateMessage />
-        </div>
+        {
+          Message &&
+                  <div className={styles.floatingBtn}>
+                  <CreateMessage />
+                </div>
+      }
       </div>
       <Modal
         callback={(Open) => setOpenModalNewUser(Open)}
@@ -148,14 +166,17 @@ export const UsersPage = () => {
       >
         <ModalNewUser size="md" textHeader="New User" />
       </Modal>
-      <Modal callback={(Open) => setOpenModalDeleteUser(Open)} isOpen={OpenModalDeleteUser}>
+      <Modal callback={(Open) => setIsOpenModalDeleteUser(Open)} isOpen={OpenModalDeleteUser}>
         <div className={styles.deleteModal}>
           <ModalDelete
             title='Delete Users'
             body='The users you selected will be permanently deleted, do you want to continue?'
+            user={deleteUser}
           />
         </div>
       </Modal>
-    </TableProvider>
+
+
+    </>
   );
 };

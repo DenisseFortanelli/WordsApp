@@ -7,22 +7,27 @@
   position: absolute;
   height: 6.4rem;
   top: 0rem;
+  transition: all ease-in-out .1s;
 }
+
 .containerTitle {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0rem 0.4rem;
+  padding: 0px 0.4rem;
   height: 6.4rem;
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+  transition: all linear .1s;
 }
+
 .containerTitle:hover {
   border-bottom: 0.4rem solid #1874d0;
 }
+
 .link {
   height: 2.8rem;
   font-family: var(--fontA);
@@ -36,8 +41,14 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  text-decoration:none;
+  text-decoration: none;
+  transition: all ease-in-out .1s;
 }
+
 .link:hover {
+  color: #1874d0;
+}
+
+.link:marker {
   color: #1874d0;
 }

@@ -5,15 +5,11 @@
 }
 
 .sm>.contenido {
-	width: 28.8rem;
-	height: 3.8rem;
-	border-radius: 0.4rem;
+	width: 28.2rem;
+	height: 4.2rem;
 	outline: none;
-	border: 0 currentColor var(--white);
-	font-family: var(--fontA);
-	font-size: 1.6rem;
-	font-weight: 400;
-	color: var(--neutral800);
+	border: 0;
+	border-radius: 0.4rem;
 }
 .xl {
 
@@ -25,14 +21,10 @@
 
 .xl>.contenido {
 	width: 59.2rem;
-	height: 3.8rem;
-	border-radius: 0.4rem;
+	height: 4.2rem;
 	outline: none;
-	border: 0 currentColor var(--white);
-	font-family: var(--fontA);
-	font-size: 1.6rem;
-	font-weight: 400;
-	color: var(--neutral800);
+	border: 0;
+	border-radius: 0.4rem;
 
 }
 
@@ -41,7 +33,7 @@
 	flex-direction: row;
 	align-items: center;
 	line-height: 2rem;
-	color: #6B7280;
+	/* color: #6B7280; */
 	padding: 1rem;
 	outline: none;
 	background: var(--white);
@@ -49,17 +41,40 @@
 }
 
 .contenido {
+	border: 0;
+	outline: 0.2rem solid var(--neutral300);
+	padding: 0.7rem;
+	font-family: var(--fontA);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.6rem;
+	margin-top: 0.8rem;
+	margin-bottom: 0.6rem;
+}
+
+.contenidoOne {
 	background: var(--white);
-	padding: 0.5rem;
 	outline: none;
 	font-family: var(--fontA);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1.6rem;
 	line-height: 2rem;
+	appearance: none;
+	background-image: url('https://res.cloudinary.com/dtwp0t9tn/image/upload/v1672771261/Vector_ut48pm.svg');
+	background-position: right 1.35rem center;
+	background-repeat: no-repeat;
+	outline: 0.2rem solid var(--neutral300);
+	border: 0;
+	margin-top: 0.8rem;
+	margin-bottom: 0.6rem;
 }
-.contenidoOne {
-	color: var(--gray900);
+
+.contenidoOne>option {
+	color: var(--neutral800);
+}
+
+.contenidoTwo{
 	background: var(--white);
 	padding: 0.5rem;
 	outline: none;
@@ -71,11 +86,25 @@
 }
 
 .textTitle {
-	margin-bottom: 0.6rem;
 	font-family: var(--fontA);
 	font-style: normal;
 	font-weight: 700;
 	font-size: 1.4rem;
 	line-height: 1.9rem;
 	color: var(--neutral800);
+}
+
+.contenido:disabled {
+	background: var(--neutral100);
+	cursor: no-drop;
+	border: 0.1rem solid var(--neutral300);
+	color: black;
+}
+
+.errorCont {
+	background-color: var(--red50);
+}
+
+.emailError {
+	outline: 0.2rem solid var(--red500);
 }

@@ -1,0 +1,154 @@
+.containerHeader {
+    width: 111.6rem;
+    height: 35rem;
+    padding: 2.4rem;
+    background: radial-gradient(77.6% 669.29% at 22.4% 50%, rgba(255, 237, 213, 0.7) 0%, rgba(255, 237, 213, 0) 100%);
+    /* v1.5/Neutral/200 */
+
+    border: 1px solid var(--neutral200);
+    border-radius: 0.8rem;
+}
+
+.glossary {
+    font-family: var(--fontA);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+
+    color: var(--neutral800);
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.containerTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem;
+    gap: 1.6rem;
+    isolation: isolate;
+
+    width: 106.8rem;
+    height: 4rem;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.space {
+    width: 1068px;
+    height: 1px;
+    margin-top: 1.6rem;
+
+    /* v1.5/Neutral/200 */
+
+    background: #E5E5E5;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.tittle {
+    /* Term sets simplify searching for definitions */
+
+
+    width: 53.4rem;
+    height: 8.6rem;
+
+    font-family: var(--fontB);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 4.3rem;
+    margin-top: 2.4rem;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.body {
+    margin-top: 1.6rem;
+    width: 53.4rem;
+    height: 4.4rem;
+
+    font-family: var(--fontA);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+
+    /* v1.5/Neutral/800 */
+
+    color: #262626;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.elementsFooter {
+    margin-top: 2.4rem;
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 12px;
+
+width: 534px;
+height: 40px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.containerBodyGlossary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12.4rem;
+    height: 19.8rem;
+}
+.containerBodyWords{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 13.4rem;
+    height: 19.8rem;
+
+}
+
+.positionImg {
+    margin-top: 3.6rem;
+
+}
+.positionImgWords{
+    margin-top: 4.3rem;
+}

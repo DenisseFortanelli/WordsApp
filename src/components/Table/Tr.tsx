@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 
-export const Tr = ({children}:{children:ReactElement|ReactElement[]}) => {
+export const Tr = ({children, className}:{children:ReactElement|ReactElement[], className:string}) => {
     return (
-        <tr>{children}</tr>
+        <tr className={className}>{children}</tr>
     )
 }

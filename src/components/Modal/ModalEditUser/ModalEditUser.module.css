@@ -4,7 +4,7 @@
 }
 .md {
   width: 65rem;
-  height: 98.8rem;
+  height: 111rem;
 }
 .xl {
   width: 66rem;
@@ -69,6 +69,7 @@
   height: 0rem;
   left: 0rem;
   top: 1.6rem;
+  margin-bottom: 3.7rem;
   
   border: 0.1rem solid #e5e5e5;
 }
@@ -80,7 +81,6 @@
   padding: 0rem;
   gap: 0.8rem;
   margin: 2.4rem;
-  height: 54px;
 }
 .textTypeUser {
   font-family: var(--fontA);
@@ -108,7 +108,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0rem;
-  gap: 27.7rem;
+  gap: 28.5rem;
 }
 .title {
   font-family: var(--fontA);
@@ -186,11 +186,26 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 0rem;
   gap: 0.8rem;
-
   position: absolute;
-  width: 16.5rem;
   right: 2.4rem;
-  bottom: 2.2rem;
+  bottom: 1.6rem;
+}
+
+.headerTitle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.closeIcon{
+  margin-top: 2rem;
+  margin-left: 45rem;
+  margin-right: 29.25px;
+  color: var(--neutral500);
+  cursor: pointer;
+}
+.closeIcon:hover{
+  color: var(--orange500);
+  cursor: pointer;
 }
