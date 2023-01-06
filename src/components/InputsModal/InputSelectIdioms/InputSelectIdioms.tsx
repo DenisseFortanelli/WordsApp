@@ -20,6 +20,7 @@ export const InputSelectIdiom = ({ textTitle, size, defaultValue, onChange,
 	return (
 		<div>
 			<label htmlFor="idiom"
+			    style={{ color: hasError ? 'red' : 'var(--neutral800)' }}
 				className={`${styles.textTitle}`}>{textTitle}</label>
 			<select
 				className={`

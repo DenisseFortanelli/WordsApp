@@ -82,7 +82,6 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
       <div className={styles.containerPersonalInformation}>
         <div className={styles.personalInfoText}>
           <p className={styles.title}>PERSONAL INFORMATION</p>
-          <p className={styles.infoReq}>* Information required</p>
         </div>
         <p className={styles.profilePicture}>Profile Picture</p>
         <div className={styles.containerChangePicture}>

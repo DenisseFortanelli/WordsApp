@@ -4,7 +4,7 @@
 }
 .md {
   width: 65rem;
-  height: 111rem;
+  height: 109.5rem;
 }
 .xl {
   width: 66rem;
@@ -17,12 +17,10 @@
   right: 0rem;
   top: 0rem;
   bottom: 0rem;
-  /* Neutral/200 */
   background-color: white;
-
   border: 0.1rem solid #e5e5e5;
   box-shadow: 0rem 1px 2px -1px rgba(0, 0, 0, 0.1),
-    0rem 1px 3px rgba(0, 0, 0, 0.1);
+              0rem 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 0.4rem;
 }
 .textHeader {
@@ -31,14 +29,7 @@
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.7rem;
-  /* identical to box height */
-
-  /* Neutral/900 */
-
   color: var(--neutral900);
-
-  /* Inside auto layout */
-
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -69,9 +60,8 @@
   height: 0rem;
   left: 0rem;
   top: 1.6rem;
-  margin-bottom: 3.7rem;
-  
-  border: 0.1rem solid #e5e5e5;
+  border: 0.5px solid var(--neutral200);
+  background-color: var(--neutral200);
 }
 .typeUser {
   display: flex;
@@ -80,7 +70,14 @@
   align-items: center;
   padding: 0rem;
   gap: 0.8rem;
-  margin: 2.4rem;
+  margin-top: 4.2rem;
+  margin-left: 2.4rem;
+  margin-right: 2.4rem;
+  height: 54px;
+}
+.toggleUser{
+  margin-top: 26px;
+  margin-right: 7px;
 }
 .textTypeUser {
   font-family: var(--fontA);
@@ -99,8 +96,10 @@
   align-items: flex-start;
   padding: 0rem;
   gap: 1.6rem;
-  margin: 2.4rem;
-  margin-bottom: 3.2rem;
+  margin-right: 2.4rem;
+  margin-left: 2.4rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1.7rem;
 }
 .personalInfoText {
   display: flex;
@@ -108,7 +107,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0rem;
-  gap: 28.5rem;
+  gap: 27.7rem;
 }
 .title {
   font-family: var(--fontA);
@@ -179,17 +178,19 @@
   width: 100%;
   height: 0rem;
   left: 0rem;
-  /* Neutral/200 */
   border: 0.1rem solid var(--neutral200);
 }
+
 .buttonFooter {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  padding: 0rem;
   gap: 0.8rem;
   position: absolute;
-  right: 2.4rem;
-  bottom: 1.6rem;
+  width: 16.5rem;
+  right: 4.5rem;
+  bottom: 1.7rem;
 }
 
 .headerTitle{

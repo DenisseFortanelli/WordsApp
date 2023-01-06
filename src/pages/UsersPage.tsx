@@ -17,6 +17,7 @@ import { User } from "../components/Table/interface";
 import { BtnDeleteUser } from "../components/Button/BtnDeleteUser/BtnDeleteUser";
 import ModalDelete from "../components/Modal/ModalDelete/ModalDelete";
 import { TableContext } from "../context/TableContext";
+import { MessageNewUser } from "../components/MessageNewUser/MessageNewUser";
 
 
 export const UsersPage = () => {
@@ -30,6 +31,11 @@ export const UsersPage = () => {
   const { isReady } = useContext(Context);
   const { isAuthenticated } = useAuth0();
   const { data, refetch } = getUsersDataCards();
+  const [successModal, setsuccessModal] = useState<{success: boolean, message: string}>()
+  
+  const handleSuccessModal = (success: boolean, message: string)=> {
+    setsuccessModal({success, message})
+  }
 
  /*  const initialValue = {
     name: ''
@@ -56,9 +62,11 @@ export const UsersPage = () => {
     
   }, [ isOpenModalNewUser])
   
+  
 
   useEffect(() => {
   }, [show]);
+
 
   if (!isReady) {
     return <></>;
@@ -153,19 +161,20 @@ export const UsersPage = () => {
             </div>
           )}
         </div>
-        {
-          Message &&
-                  <div className={styles.floatingBtn}>
-                  <CreateMessage />
-                </div>
-      }
+       
       </div>
       <Modal
         callback={(Open) => setOpenModalNewUser(Open)}
         isOpen={isOpenModalNewUser}
       >
-        <ModalNewUser size="md" textHeader="New User" />
+        <ModalNewUser size="md" textHeader="New User" onSuccess={handleSuccessModal} />
       </Modal>
+      {
+        successModal?.success &&
+        <MessageNewUser 
+        message={successModal.message}
+        onClick={()=>{setsuccessModal({success: false, message:''})}}/> //resetear el estado
+      }
       <Modal callback={(Open) => setIsOpenModalDeleteUser(Open)} isOpen={OpenModalDeleteUser}>
         <div className={styles.deleteModal}>
           <ModalDelete

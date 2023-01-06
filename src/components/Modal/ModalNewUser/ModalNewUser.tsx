@@ -11,10 +11,10 @@ import { createUserData } from "../../../hooks/useUsers";
 import { IUser } from "../../../interface/FetchAllUserResponse";
 import { InputSelectTime } from "../../InputsModal/InputSelectTime/InputSelectTime";
 import { InputSelectIdiom } from "../../InputsModal/InputSelectIdioms/InputSelectIdioms";
-import { useFormik } from "formik";
+import { Formik, useFormik } from "formik";
 import { date, object, string } from "yup";
 
-const ModalNewUser = ({ size, textHeader }: ModalNew) => {
+const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
   const initialValues = {
     birthday: '',
     email: '',
@@ -44,24 +44,27 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
     timezone: string().required('Debes seleccionar una zona horaria'),
   })
   
-  const formik = useFormik<IUser>({
-    initialValues,
-    validationSchema,
-    onSubmit: useFormik => {
-      mutate({...useFormik, is_admin: user.is_admin})
-      setUser(initialValues)
-      setIsOpenModal(false)
-    }
-  })
+ 
   
   function handleTypeUserChange({isActive}:{isActive: boolean}){
     console.log('handleType',isActive);
     setUser({...user, is_admin: isActive})
-    
   }
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <Formik
+    initialValues={initialValues}
+    validationSchema={validationSchema}
+    onSubmit={ (useFormik, {resetForm}) => {
+      resetForm()
+      mutate({...useFormik, is_admin: user.is_admin})
+      setUser(initialValues)
+      setIsOpenModal(false)
+      onSuccess && onSuccess(true, `Great! You've created new user`)
+    }}
+    >
+      {({ handleBlur, values, handleSubmit, handleChange, resetForm, errors }) => (
+      <form onSubmit={handleSubmit}>
       <div
         className={`${styles[size]} ${styles.modalContainer}`}
       >
@@ -79,7 +82,7 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
           <p className={styles.textHeader}>{textHeader}</p>
         </div>
             <div className={styles.closeIcon}>
-            <X size='2.3rem' onClick={() => setIsOpenModal(false)} />
+            <X size='2.3rem' onClick={() => {setIsOpenModal(false); resetForm()}} />
             </div>
         </div>
         <div className={styles.separationHeader}></div>
@@ -93,13 +96,12 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
         <div className={styles.containerPersonalInformation}>
           <div className={styles.personalInfoText}>
             <p className={styles.title}>PERSONAL INFORMATION</p>
-            <p className={styles.infoReq}>* Information required</p>
           </div>
           <p className={styles.profilePicture}>Profile Picture</p>
           <div className={styles.containerChangePicture}>
             <Avatar
               size="xl"
-              imageSrc={user.image}
+              imageSrc="https://xavierferras.com/wp-content/uploads/2019/02/266-Persona.jpg"
             />
             <div className={styles.containerChangePictureBtn}>
               <BasicBtn
@@ -113,50 +115,54 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
             </div>
           </div>
           <InputModal
-            onChange={formik.handleChange}
+            onBlur={handleBlur}
+            onChange={handleChange}
             name='name'
             size="lg"
-            value={formik.values.name}
+            value={values.name}
             type="text"
             placeholder=""
             textTitle="Name*" 
-            errorMsg={formik.errors.name}
-            hasError={formik.errors.name ? true : false}
+            errorMsg={errors.name}
+            hasError={errors.name ? true : false}
 />
           <InputModal
-            onChange={formik.handleChange}
+            onBlur={handleBlur}
+            onChange={handleChange}
             name='lastname'
-            value={formik.values.lastname}
+            value={values.lastname}
             size="lg"
             type="text"
             placeholder=""
             textTitle="Last Name*"
-            errorMsg={formik.errors.lastname}
-            hasError={formik.errors.lastname ? true : false}
+            errorMsg={errors.lastname}
+            hasError={errors.lastname ? true : false}
           />
 
           <div className={styles.containerBirthdayPhone}>
             <InputModal
-              onChange={formik.handleChange}
+              onBlur={handleBlur}
+              onChange={handleChange}
               name='birthday'
-              value={formik.values.birthday}
+              value={values.birthday}
               size="md"
               type="date"
               textTitle="Birthday"
               subText=" (Optional)"
-              errorMsg={formik.errors.birthday}
-            hasError={formik.errors.birthday ? true : false}
+              errorMsg={errors.birthday}
+            hasError={errors.birthday ? true : false}
             />
             <InputModal
-              onChange={formik.handleChange}
+              onBlur={handleBlur}
+              onChange={handleChange}
               name='phone'
-              value={formik.values.phone}
+              value={values.phone}
               size="md"
               type="text"
               placeholder="ej. (442) 212 2365"
               textTitle="Phone number*"
-              errorMsg={formik.errors.phone}
-            hasError={formik.errors.phone ? true : false}
+              errorMsg={errors.phone}
+            hasError={errors.phone ? true : false}
             />
 
           </div>
@@ -164,36 +170,39 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
         <div className={styles.accountInformation}>
           <p className={styles.title}>ACCOUNT INFORMATION</p>
           <InputModal
-            onChange={formik.handleChange}
+            onBlur={handleBlur}
+            onChange={handleChange}
             name='email'
-            value={formik.values.email}
+            value={values.email}
             size="lg"
             type="text"
             placeholder="ej. nombre@correo.com"
             textTitle="Email*"
-            errorMsg={formik.errors.email}
-            hasError={formik.errors.email ? true : false}
+            errorMsg={errors.email}
+            hasError={errors.email ? true : false}
           />
           <InputSelectTime
-          onChange={formik.handleChange}
+          onBlur={handleBlur}
+          onChange={handleChange}
           name='timezone'
           placeholder="Choose..."
-          value={formik.values.timezone}
+          value={values.timezone}
           size="xl"
           textTitle="Timezone*"
-          errorMsg={formik.errors.timezone}
-            hasError={formik.errors.timezone ? true : false}
+          errorMsg={errors.timezone}
+            hasError={errors.timezone ? true : false}
 
           />
           <InputSelectIdiom
-          onChange={formik.handleChange}
+          onBlur={handleBlur}
+          onChange={handleChange}
           name='language'
           placeholder="Choose..."
-          value={formik.values.language}
+          value={values.language}
           size="sm"
           textTitle="Language*"
-          errorMsg={formik.errors.language}
-            hasError={formik.errors.language ? true : false}
+          errorMsg={errors.language}
+          hasError={errors.language ? true : false}
           />
         </div>
         <div className={styles.separationFooter}></div>
@@ -203,13 +212,14 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
         </div>
         <div className={styles.buttonFooter}>
           <BasicBtn
-            onClick={() => setIsOpenModal(false)}
+             onClick={() => {setIsOpenModal(false); resetForm()}}
             size="sm"
             backgroundColor="white"
             fontWeight={700}
             borderColor="var(--neutral300)"
             colorText="var(--neutral900)"
             text="Cancel"
+            type="reset"
           />
           <BasicBtn
            /*  onClick={handleSubmit} */
@@ -224,6 +234,8 @@ const ModalNewUser = ({ size, textHeader }: ModalNew) => {
         </div>
       </div>
     </form>
+      )}
+    </Formik>
      
   );
 };

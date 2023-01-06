@@ -7,7 +7,6 @@ export const InputModal = ({ hasError, errorMsg, onBlur, textId, textTitle, size
 
 	const [focus, setFocus] = useState(false)
 
-
 	return (
 		<div>
 			<label id={textId} className={`${styles.textTitle}`} style={{ color: hasError ? 'red' : 'var(--neutral800)' }} >{textTitle}</label>
@@ -27,6 +26,7 @@ export const InputModal = ({ hasError, errorMsg, onBlur, textId, textTitle, size
 					name={name}
 					onChange={onChange}
 					placeholder={placeholder}
+					style={{color: value === placeholder ? 'var(--gray400)' : value ? 'var(--gray800)' : 'var(--gray400)'}}
 				/>
 			</div>
 			<span>{errorMsg}</span>

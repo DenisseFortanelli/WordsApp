@@ -1,0 +1,28 @@
+.tittleHeader {
+    font-family: var(--fontA);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+
+    /* identical to box height */
+
+
+    /* v1.5/Neutral/800 */
+
+    color: var(--neutral800);
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    width: 15.7rem;
+    position: relative;
+    background-color: white;
+    border: 1px solid var(--slate200);
+    border-radius: .4rem;
+    margin-top: .8rem;
+
+}

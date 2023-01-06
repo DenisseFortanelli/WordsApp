@@ -4,14 +4,10 @@
     align-items: center;
     padding: 16px;
     gap: 4px;
-
     width: 328px;
     height: 68px;
     left: 32px;
     top: 0px;
-
-    /* Neutral/900 */
-
     background: #171717;
     border-radius: 4px;
 }
@@ -42,16 +38,15 @@ color: var(--neutral200);
 }
 .buttonOK{
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0.6rem 0.8rem;
-
-    width: 3.6rem;
-    height: 3.6rem;
-
-    border-radius: 0.8rem;
-    cursor: pointer;
+flex-direction: row;
+align-items: flex-start;
+padding: 0.6rem 0.8rem;
+width: 3.6rem;
+height: 3.6rem;
+border-radius: 0.8rem;
+cursor: pointer;
 }
+
 .OK{
     
 font-family: var(--fontA);
@@ -59,11 +54,6 @@ font-style: normal;
 font-weight: 500;
 font-size: 1.4rem;
 line-height: 2.4rem;
-/* identical to box height, or 171% */
-
-
-/* Orange/600 */
-
 color: var(--orange600);
 
 }

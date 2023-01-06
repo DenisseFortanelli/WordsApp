@@ -1,16 +1,17 @@
-import { ModalDelete } from '../../components/Modal/ModalDelete/ModalDelete';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ExampleModalDeleteUser } from '../../components/Modal/ModalExamples/ExampleModalDeleteUser';
+
 export default {
 	title: 'modal',
-	component: ModalDelete
-} as ComponentMeta<typeof ModalDelete>
+	component: ExampleModalDeleteUser
+} as ComponentMeta<typeof ExampleModalDeleteUser>
 
-const Template: ComponentStory<typeof ModalDelete> = (args) => {
-	return <ModalDelete {...args} />
+const Template: ComponentStory<typeof ExampleModalDeleteUser> = (args) => {
+	return <ExampleModalDeleteUser {...args} />
 }
 
-export const ModalDeleteComponent = Template.bind({})
-ModalDeleteComponent.args = {
+export const ExampleModalDeleteUserComponent = Template.bind({})
+ExampleModalDeleteUserComponent.args = {
 	title: 'Delete Users',
 	body: 'The users you selected will be permanently deleted, do you want to continue?'
 }

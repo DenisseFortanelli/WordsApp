@@ -153,6 +153,11 @@ td {
   font-size: 1.2rem;
   line-height: 2rem;
   color: #262626;
+  appearance: none;
+	background-image: url('https://res.cloudinary.com/dtwp0t9tn/image/upload/v1672771261/Vector_ut48pm.svg');
+	background-position: right 1rem center;
+	background-repeat: no-repeat;
+  background-size: 1.1rem;
 }
 
 .containerAvatar {

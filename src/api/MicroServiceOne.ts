@@ -2,7 +2,7 @@ import axios from '../helpers/InterceptorsToken';
 import { IUser } from '../interface/FetchAllUserResponse';
 
 export const getUsersCards = async () => {
-	const response = await axios.get(`${import.meta.env.VITE_API_BACKEND}/users?page=1&page_size=6`)
+	const response = await axios.get(`${import.meta.env.VITE_API_BACKEND}/users?page=1&page_size=12`)
 	const resp = (response.data)
 	return resp
 }
