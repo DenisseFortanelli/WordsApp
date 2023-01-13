@@ -1,0 +1,30 @@
+.inputFileBtn {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 1rem 2rem;
+	background: var(--white);
+	border: 0.1rem solid var(--neutral300);
+	border-radius: 0.4rem
+}
+
+.inputFileBtn:hover {
+	background: var(--neutral50);
+}
+
+.inputFileBtn:focus {
+	outline: 0.1rem solid var(--celeste500);
+}
+
+.inputFileBtn:active {
+	border: 0.2rem solid var(--celeste400);
+}
+
+.textBtn {
+	font-family: var(--fontA);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.4rem;
+	line-height: 1.9rem;
+	color: var(--neutral900);
+}

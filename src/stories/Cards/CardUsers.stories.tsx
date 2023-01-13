@@ -3,7 +3,7 @@ import { MouseEvent} from 'react'
 import CardUsers from '../../components/CardUsers/CardUsers'
 
 export default {
-    title:'CardUsers',
+    title:'Cards',
     component: CardUsers
 } as ComponentMeta<typeof CardUsers>
 

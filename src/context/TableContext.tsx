@@ -10,6 +10,7 @@ interface TableContextProps {
     setDeleteUser:(deleteUser?: User) => void
     setIsOpenModalEditUser:(isOpenModalEditUser?: boolean | undefined) => void
     setIsOpenModalNewCategory:(isOpenModalNewCategory?: boolean) => void 
+    setShowGlossary:(isShowGlossary?:boolean)=>void
 }
 
 export const TableContext = createContext<TableContextProps>({} as TableContextProps)

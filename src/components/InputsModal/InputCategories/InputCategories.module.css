@@ -8,6 +8,7 @@
 	align-items: center;
 	gap: 0.8rem;
 	padding: 1rem;
+	
 	background-color: white;
 	border: 1px solid var(--slate200);
 	border-radius: .4rem;
@@ -41,7 +42,9 @@ font-size: 1.4rem;
 	font-size: 0.96rem;
 }
 .dropdown{
+	box-shadow: 0rem 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.1), 0rem 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
 	position: absolute;
+	z-index: 120;
 	min-height: 2.4rem;
 	background-color: white;
 	border-radius: .4rem;

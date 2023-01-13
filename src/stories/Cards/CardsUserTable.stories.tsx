@@ -3,7 +3,7 @@ import CardsTable from '../../components/CardsUserTable/CardsUserTable'
 
 
 export default {
-    title:'HomeCards',
+    title:'Cards',
     component: CardsTable
 } as ComponentMeta<typeof CardsTable>
 

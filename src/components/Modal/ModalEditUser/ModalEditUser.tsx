@@ -7,12 +7,13 @@ import { ModalContext } from '../index';
 import { ModalEditProps } from "./Interface";
 import InputModal from "../../InputsModal/InputsModal";
 import ToggleButton from "../../Button/ToggleButton/ToggleButton";
-import { updateUserData } from "../../../hooks/useUsers";
+import { updateImgData, updateUserData } from "../../../hooks/useUsers";
 import { useAuth0 } from "@auth0/auth0-react";
 import { IUser } from "../../../interface/FetchAllUserResponse";
 import { InputSelectTime } from "../../InputsModal/InputSelectTime/InputSelectTime";
 import { InputSelectIdiom } from "../../InputsModal/InputSelectIdioms/InputSelectIdioms";
 import { TableContext } from "../../../context/TableContext";
+import { InputFile } from "../../InputFile/InputFile";
 
 
 const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps) => {
@@ -22,10 +23,10 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
     birthday: '',
     email: '',
     id: '',
-    image: '',
     is_admin: true,
     language: '',
     lastname: '',
+    // image: '',
     middlename: '',
     name: '',
     phone: '',
@@ -33,10 +34,11 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
   }
 
   const [user, setUser] = useState<IUser>(originalUser ?? initialValue)
+  const [img, setImg] = useState<File>()
+  const [imageUrl, setImageUrl] = useState<any>()
+  const { mutate: ImgMutate } = updateImgData()
   const { setIsOpenModalEditUser } = useContext(TableContext)
   const { mutate } = updateUserData()
-
-  useEffect(() => setUser(_ => originalUser), [originalUser])
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setUser(
@@ -44,19 +46,42 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
     )
   }
 
+  function handleImage(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.files) {
+
+      setImg(e.target.files[0])
+      const fr = new FileReader()
+      fr.onload = () => {
+        setImageUrl(fr.result)
+      }
+      fr.readAsDataURL(e.target.files[0])
+      const data = new FormData()
+      data.append('image', e.target.files[0])
+      ImgMutate({ id: user.id, data })
+    }
+
+  }
+  function getImage() {
+    if (imageUrl) return imageUrl
+    if (user.image) return `http://localhost:4000/api/users/image/${user.image.file_name}`
+  }
+
   function handleSubmit() {
-    mutate({...user, is_admin: user.is_admin})
+
+    mutate({ ...user, is_admin: user.is_admin })
     setUser(initialValue)
     setIsOpenModalEditUser(false)
   }
 
-  function handleTypeUserChange({isActive}:{isActive: boolean}){
-    console.log('handleType',isActive);
-    setUser({...user, is_admin: isActive})
-    
+  function handleTypeUserChange({ isActive }: { isActive: boolean }) {
+    console.log('handleType', isActive);
+    setUser({ ...user, is_admin: isActive })
+
   }
+  useEffect(() => setUser(_ => originalUser), [originalUser])
 
   return (
+
     <div
       className={`${styles[size]} ${styles.modalContainer}`}
     >
@@ -69,7 +94,7 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
           <p className={styles.textHeader}>{textHeader}</p>
         </div>
         <div className={styles.closeIcon}>
-          <X size='2.3rem' onClick={() => setIsOpenModalEditUser(false)} />
+          <X size='2.8rem' onClick={() => setIsOpenModalEditUser(false)} />
         </div>
       </div>
       <div className={styles.separationHeader}></div>
@@ -77,27 +102,26 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
         <div className={styles.textTypeUser}>
           What type of user do you want to create?
         </div>
-        <ToggleButton values={['Admin', 'Editor']} onChange={handleTypeUserChange} />
+        <ToggleButton
+          values={['Admin', 'Editor']}
+          onChange={handleTypeUserChange}
+        />
       </div>
       <div className={styles.containerPersonalInformation}>
         <div className={styles.personalInfoText}>
           <p className={styles.title}>PERSONAL INFORMATION</p>
+          <p className={styles.infoReq}>* Information required</p>
         </div>
         <p className={styles.profilePicture}>Profile Picture</p>
         <div className={styles.containerChangePicture}>
           <Avatar
             size="xl"
-            imageSrc="https://xavierferras.com/wp-content/uploads/2019/02/266-Persona.jpg"
+            text={user.name}
+            imageSrc={getImage()}
           />
           <div className={styles.containerChangePictureBtn}>
-            <BasicBtn
-              size="lg"
-              backgroundColor="white"
-              fontWeight={700}
-              borderColor="var(--neutral300)"
-              colorText="var(--neutral900)"
-              text="Upload New Picture"
-            />
+  
+            <InputFile name="image" onChange={handleImage} />
             <BasicBtn
               size="sm"
               backgroundColor="var(--red400)"
@@ -113,6 +137,7 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
           value={user.name}
           onChange={handleChange}
           name='name'
+          // value={user.first_name}
           size="lg"
           type="text"
           placeholder='Jose'
@@ -122,33 +147,24 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
           value={user.lastname}
           onChange={handleChange}
           name='lastname'
+          // value={user.last_name}
           size="lg"
           type="text"
           placeholder='Ramirez'
           textTitle="Last Name*"
         />
-        {/* <InputModal
-          value={user.second_last_name}
-          onChange={handleChange}
-          name='second_last_name'
-          // value={user.second_last_name}
-          size="lg"
-          type="text"
-          placeholder='Second last name'
-          textTitle="Second Name*"
-        /> */}
 
         <div className={styles.containerBirthdayPhone}>
           <InputModal
             value={user.birthday}
             onChange={handleChange}
             name='birthday'
-            // value={user.birthday}
+            // value={user.date_of_birth}
             size="md"
             type="date"
+            subText=" (Optional)"
             placeholder='22 Nov 1990'
             textTitle="Birthday"
-            subText=" (Optional)"
           />
           <InputModal
             value={user.phone}
@@ -169,26 +185,30 @@ const ModalEditUser = ({ size, textHeader, user: originalUser }: ModalEditProps)
           onChange={handleChange}
           value={user.email}
           name='email'
-          // value={user.email}
+          disabled
           size="lg"
           type="text"
           placeholder='joss.reamirez@company.mx'
           textTitle="Email*"
-          disabled={true}
         />
         <InputSelectTime
           onChange={handleChange}
           name='timezone'
           value={user.timezone}
-          size="xl"
-          textTitle="Timezone*"
+          // value={user.time_zone}
+          placeholder='Choose...'
+          size='xl'
+          textTitle="TimeZone"
         />
+
         <InputSelectIdiom
           onChange={handleChange}
           name='language'
           value={user.language}
+          // value={user.language}
+          textTitle='Language'
+          placeholder="Choose..."
           size="sm"
-          textTitle="Language*"
         />
 
       </div>
@@ -223,4 +243,5 @@ export default ModalEditUser;
 
 ModalEditUser.defaultProps = {
   size: "md",
+
 };

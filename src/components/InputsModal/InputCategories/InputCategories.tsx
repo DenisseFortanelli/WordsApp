@@ -68,7 +68,7 @@ export const InputCategories = ({ defaultValue, onChange, name, value }: InputCa
 					</>
 				}
 				{lengthItems <= 1 &&
-					<>{lengthItems === 0 && <p>Categories</p>}
+					<>{lengthItems === 0 && <p style={{marginRight:8}}>Categories</p>}
 						{lengthItems === 1 && firstItem && <p className={styles.firstSelectedItem}>{firstItem?.text}</p>}
 						<CaretDown size={20} /></>}
 

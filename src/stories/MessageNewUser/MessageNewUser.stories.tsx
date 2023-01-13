@@ -20,6 +20,6 @@ const Template:ComponentStory<typeof MessageNewUser> = (args) => {
 
 export const MessageNewUserComponent = Template.bind({})
 MessageNewUserComponent.args={
-    onClick:handleClick
-    
+    onClick:handleClick,
+    message:'Created a New User!'
 }

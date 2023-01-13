@@ -4,6 +4,7 @@ import { TableContextState } from "./TableContextProvider";
 export type Action =
     | { type: 'setCurrentUser', payload: { currentUser: User } }
     | { type: 'setIsOpenModalEditUser', payload: { isOpenModalEditUser: boolean } }
+    | {type: 'setShowGlossary', payload:{isShowGlossary:boolean}}
     | { type: 'setIsOpenModalNewCategory', payload: { isOpenModalNewCategory: boolean } }
     | { type: 'setDeleteUser', payload: { deleteUser: User | undefined } }
 
@@ -19,6 +20,12 @@ export const TableReducer = (state: TableContextState, action: Action): TableCon
                 ...state,
                 isOpenModalEditUser: action.payload.isOpenModalEditUser
             };
+
+        case 'setShowGlossary':
+                return {
+                    ...state,
+                    isShowGlossary: action.payload.isShowGlossary
+        };
         case 'setIsOpenModalNewCategory':
             return {
                 ...state,

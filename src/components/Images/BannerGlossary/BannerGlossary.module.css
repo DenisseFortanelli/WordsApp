@@ -1,7 +1,7 @@
 .containerHeader {
     width: 111.6rem;
     height: 35rem;
-    padding: 2.4rem;
+    padding-top: 2.5rem;
     background: radial-gradient(77.6% 669.29% at 22.4% 50%, rgba(255, 237, 213, 0.7) 0%, rgba(255, 237, 213, 0) 100%);
     /* v1.5/Neutral/200 */
 
@@ -29,13 +29,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 0rem;
-    gap: 1.6rem;
     isolation: isolate;
-
-    width: 106.8rem;
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
     height: 4rem;
-
-
     /* Inside auto layout */
 
     flex: none;
@@ -44,6 +41,7 @@
 }
 
 .space {
+    margin-left: 2.4rem;
     width: 1068px;
     height: 1px;
     margin-top: 1.6rem;
@@ -128,18 +126,20 @@ flex-grow: 0;
 }
 
 .containerBodyGlossary {
+    margin-left: 2.4rem;
+    margin-right: 2.4rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 12.4rem;
     height: 19.8rem;
 }
 .containerBodyWords{
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 13.4rem;
     height: 19.8rem;
 

@@ -13,6 +13,7 @@ import { InputSelectTime } from "../../InputsModal/InputSelectTime/InputSelectTi
 import { InputSelectIdiom } from "../../InputsModal/InputSelectIdioms/InputSelectIdioms";
 import { Formik, useFormik } from "formik";
 import { date, object, string } from "yup";
+import { createUsers } from "../../../api/MicroServiceOne";
 
 const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
   const initialValues = {
@@ -30,18 +31,19 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
     is_admin:true
   }
   const [user, setUser] = useState<IUser>(initialValues)
+  const [isMultiple, setisMultiple] = useState(false)
   const { setIsOpenModal } = useContext(ModalContext)
-  const { mutate } = createUserData()
+  /* const { mutate } = createUserData() */
   
 
   const validationSchema = object({
-    birthday: date().default(new Date('2004-12-31')).max('2004-12-31','La fecha no puede ser mayor a 2004').required('El año de nacimiento es obligatorio'),
-    email: string().email('El email no tiene formato válido').required('El email es obligatorio'),
-    name: string().required('El nombre es requerido').min(1, 'El nombre tiene que tener almenos un caracter').max(10, 'El nombre no puede superar los 10 caracteres'),
-    language: string().required('Debes seleccionar un lenguaje'),
-    lastname: string().required('El apellido es requerido').min(1, 'El apellido tiene que tener almenos un caracter').max(20, 'El apellido no puede esuperar los 20 caracteres'),
-    phone: string().min(10, 'Mínimo 10 caracteres').required('El teléfono es requerido').max(10, 'El teléfono no debe superar los 10 caracteres'),
-    timezone: string().required('Debes seleccionar una zona horaria'),
+    birthday: date().default(new Date('2004-12-31')).max('2004-12-31','The date cannot be older than 2004'),
+    email: string().email('The email does not have a valid format').required('The email is required'),
+    name: string().required('You need to define a name').min(1, 'You need to define a name'),
+    language: string().required('Please select the language of your preference'),
+    lastname: string().required('You need to define a last name').min(1, 'You need to define a last name'),
+    phone: string().min(10, 'Minimum 10 characters').required('The phone number is required').max(10, 'The phone must not exceed 10 characters'),
+    timezone: string().required('Please select the timezone of your country'),
   })
   
  
@@ -55,11 +57,12 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
     <Formik
     initialValues={initialValues}
     validationSchema={validationSchema}
-    onSubmit={ (useFormik, {resetForm}) => {
-      resetForm()
-      mutate({...useFormik, is_admin: user.is_admin})
+    onSubmit={ (e, {resetForm}) => {
+      createUsers({ ...e, is_admin: user.is_admin }).then(()=> {
+        resetForm()
+        !isMultiple && setIsOpenModal(false)
+      })
       setUser(initialValues)
-      setIsOpenModal(false)
       onSuccess && onSuccess(true, `Great! You've created new user`)
     }}
     >
@@ -91,7 +94,7 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
             What type of user do you want to create?
           </div>
           <ToggleButton values={['Admin', 'Editor']} onChange={handleTypeUserChange}/>
-        </div>
+        </div> 
 
         <div className={styles.containerPersonalInformation}>
           <div className={styles.personalInfoText}>
@@ -101,7 +104,8 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
           <div className={styles.containerChangePicture}>
             <Avatar
               size="xl"
-              imageSrc="https://xavierferras.com/wp-content/uploads/2019/02/266-Persona.jpg"
+              text={values.name}
+              backgroundColor="var(--gray200)"
             />
             <div className={styles.containerChangePictureBtn}>
               <BasicBtn
@@ -207,7 +211,8 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
         </div>
         <div className={styles.separationFooter}></div>
         <div className={styles.inputContainer}>
-          <input type="checkbox" className={styles.input} />
+        <input type="checkbox" className={styles.input} 
+                onChange={(e)=>setisMultiple(e.target.checked) } checked={isMultiple} />
           <p className={styles.textInput}>Create another User</p>
         </div>
         <div className={styles.buttonFooter}>

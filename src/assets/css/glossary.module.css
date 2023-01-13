@@ -1,5 +1,72 @@
-.containerGlossary{
+.containerGlossary {
     max-width: 111.6rem;
     padding-top: 3.6rem;
     margin: 0 auto;
+}
+
+.containerCard {
+    margin-top: 2.4rem;
+    display: grid;
+    margin-left: 5.11rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.6rem;
+}
+
+.containerCategories {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0rem;
+    width: 106.9rem;
+}
+
+.containerWords {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.4rem 0rem;
+    position:sticky;
+    top: .0rem;
+    height: 8.4rem;
+    z-index: 80;
+    background: var(--slate50);
+}
+
+.abc {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0rem;
+}
+
+.containerBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerMain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem 1.6rem;
+    /* v1.5/white */
+
+    background: #FFFFFF;
+    /* Shadows/shadow 2 */
+
+    box-shadow: 0rem 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.1), 0rem 0.1rem 0.3rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.8rem;
+    margin-bottom: 5.4rem;
+}
+
+.line {
+    width: 103.6rem;
+    height: 0rem;
+    border: 0.1rem solid var(--neutral200);
+}
+a{
+    text-decoration: none;
 }

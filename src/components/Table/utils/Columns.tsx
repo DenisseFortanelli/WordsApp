@@ -13,16 +13,21 @@ export const columns:ColumnsProps[] = [
         renderCell: (params, action) => <CheckBox user={params as User} onChange={(e) => action(e, params as User)} defaultChecked={params.check} />
     },
     {
-        field:'user',
-        headerName:'User',
-        width:'25%',
-        renderCell: (params, action)=>
-        <div className={styles.containerAvatar}>
-            <AvatarUsers size='md' text={params.name}
-                backgroundColor='var(--teal500)'
-                createBy={`${params.name} ${params.lastname}`}
-                emailUser={params.email} />
-        </div>
+        field: 'user',
+        headerName: 'User',
+        width: '25%',
+        renderCell: (params, action) => {
+            console.log('params', params);
+
+            return <div className={styles.containerAvatar}>
+                <AvatarUsers size='md' text={params.name}
+                    backgroundColor='var(--teal500)'
+                    createBy={`${params.name} ${params.lastname}`}
+                    emailUser={params.email}
+                    imageSrc={params.image && `http://localhost:4000/api/users/image/${params.image.file_name}`}
+                />
+            </div>
+        }
     },
     {
         field:'phone',

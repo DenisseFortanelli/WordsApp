@@ -23,6 +23,7 @@ import { MessageNewUser } from "../components/MessageNewUser/MessageNewUser";
 export const UsersPage = () => {
   const { state } = useContext(TableContext)
   const { deleteUser } = state
+  const [search, setSearch] = useState('')
   const [isOpenModalNewUser, setOpenModalNewUser] = useState<boolean>(false);
   const [Message, setMessage] = useState(false)
   const [OpenModalDeleteUser, setIsOpenModalDeleteUser] = useState<boolean>(false)
@@ -36,22 +37,9 @@ export const UsersPage = () => {
   const handleSuccessModal = (success: boolean, message: string)=> {
     setsuccessModal({success, message})
   }
-
- /*  const initialValue = {
-    name: ''
-  }
-  const [user, setUser] = useState({name:'denisse'})
-  const { data, refetch, isLoading, isFetching } = searchUsersData(user);
-  
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-     setUser(
-      { ...user, [e.target.name]: e.target.value }
-    ) 
-    setUser(initialValue)
-    console.log(user)
-  } */
-
+  const handleSearch = (element: any) => {
+    setSearch(element.target.value);
+  } 
   useEffect(() => {
       !isOpenModalNewUser
                 ?
@@ -66,6 +54,14 @@ export const UsersPage = () => {
 
   useEffect(() => {
   }, [show]);
+
+  useEffect(() => {
+    if(successModal?.success){
+      setTimeout(()=>{
+        setsuccessModal({success: false, message: ''})
+      }, 3000)
+    }
+  }, [successModal])
 
 
   if (!isReady) {
@@ -99,12 +95,19 @@ export const UsersPage = () => {
               type="text"
               text="Search Users by name or keyword..."
               icon="MagnifyingGlass"
-              onChange={() => { }}
+              onChange={handleSearch}
+              value={search}
             />
             <div className={styles.roundsButton}>
-              {
-                deleteUser && <BtnDeleteUser iconName="Trash" onClick={() => setIsOpenModalDeleteUser(true)} />
-
+            {
+                deleteUser?.id && <BtnDeleteUser 
+                iconName="Trash" 
+                onClick={() => setIsOpenModalDeleteUser(true)} 
+                weight="regular"
+                height={2}
+                width={2}
+                padding={1} 
+                />
               }
               {
                 show
@@ -143,7 +146,7 @@ export const UsersPage = () => {
 
           {show ? (
             <div className={styles.containerTable}>
-              <Table />
+              <Table search={search} />
             </div>
           ) : (
             <div className={styles.containerCard}>

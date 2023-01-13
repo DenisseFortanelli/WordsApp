@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { createUsers, getUsers, getUsersCards, updateUsers, deleteUsers, getSearchUsers} from '../api/MicroServiceOne';
+import { createUsers, getUsers, getUsersCards, updateUsers, deleteUsers, getSearchUsers, updateImg} from '../api/MicroServiceOne';
 
  export function getUsersDataCards (){
     return useQuery('usersCards',getUsersCards,{
@@ -7,18 +7,19 @@ import { createUsers, getUsers, getUsersCards, updateUsers, deleteUsers, getSear
     })
 }
  
-export function getUsersData({page,rowsPerPage}:any) {
-	return useQuery('users',()=> getUsers({page,rowsPerPage}), {
-		cacheTime:0, staleTime:0
+export function getUsersData({ page, rowsPerPage, name }: any) {
+	const callback = Boolean(name) ? getSearchUsers({ name }) : getUsers({ page, rowsPerPage })
+	return useQuery('users', () => (callback), {
+		cacheTime: 0, staleTime: 0
 	})
 }
 
-//Método para buscar usuarios
+/* //Método para buscar usuarios
 export function searchUsersData({user}:any){
 	return useQuery('searchUsers',()=> getSearchUsers({user}),{
 		
 	})
-}
+} */
 
 
 // Metodo para crear usuarios 
@@ -66,5 +67,20 @@ export function deleteUserData() {
 				queryKey: ['usersCards']
 			})
 		}
+	})
+}
+
+
+export function updateImgData() {
+	const queryClient = useQueryClient()
+	return useMutation(updateImg, {
+		onSuccess: async () => {
+			await queryClient.invalidateQueries({
+				queryKey: ['users']
+			})
+			await queryClient.invalidateQueries({
+				queryKey: ['usersCards']
+			})
+		},
 	})
 }

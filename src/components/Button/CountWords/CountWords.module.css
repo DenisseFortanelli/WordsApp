@@ -1,0 +1,25 @@
+.button {
+    outline: none;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    background: var(--slate100);
+    padding: 0.4rem 0.8rem;
+}
+
+.containerButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.containerButton>p {
+    font-family: var(--fontA);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+
+    color: var(--gray500);
+}

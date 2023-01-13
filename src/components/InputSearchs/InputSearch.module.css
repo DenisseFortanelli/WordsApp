@@ -1,12 +1,12 @@
 .sm {
-	width: 36.2rem;
+	width: 36.4rem;
 	height: 4.2rem;
 	border-radius: 0.4rem;
 
 }
 
 .sm>.contenido {
-	width: 36.2rem;
+	width: 36.4rem;
 	height: 3.9rem;
 	border-radius: 0.4rem;
 	outline: none;
@@ -29,13 +29,13 @@
 }
 
 .lg {
-	width: 53.4rem;
+	width: 51.5rem;
 	height: 4.2rem;
 	border-radius: 0.4rem;
 }
 
 .lg>.contenido {
-	width: 53.4rem;
+	width: 51.5rem;
 	height: 3.9rem;
 	border-radius: 0.4rem;
 	outline: none;
@@ -52,6 +52,7 @@
 	border: 0.1rem solid var(--slate200);
 
 }
+
 
 .contenido {
 	padding: 0.5rem;

@@ -2,10 +2,10 @@ import { useState } from 'react';
 import styles from './InputsModal.module.css'
 import { InputsModalsProps } from './Interface';
 
-export const InputModal = ({ hasError, errorMsg, onBlur, textId, textTitle, size, type, 
-	placeholder, onChange, required, name, value, defaultValue, disabled, iconCalendar, subText }: InputsModalsProps) => {
+export const InputModal = ({ hasError, errorMsg, onBlur, textId, textTitle, size, type, placeholder, onChange, required, name, value, defaultValue, disabled, iconCalendar, subText }: InputsModalsProps) => {
 
 	const [focus, setFocus] = useState(false)
+
 
 	return (
 		<div>
@@ -14,7 +14,7 @@ export const InputModal = ({ hasError, errorMsg, onBlur, textId, textTitle, size
 
 			<div className={`${styles[size]} ${hasError && styles.emailError} ${focus && styles.focusStyle} ${styles.borders}`} >
 				<input
-					className={`${styles.contenido} ${hasError ? styles.errorCont : styles.contenido } ${styles[iconCalendar]}`}
+					className={`${styles.contenido} ${hasError ? styles.errorCont : styles.contenido} ${styles[iconCalendar]}`}
 					onFocus={() => setFocus(true)}
 					onBlur={() => { onBlur; setFocus(false) }}
 					id={textId}
@@ -26,7 +26,7 @@ export const InputModal = ({ hasError, errorMsg, onBlur, textId, textTitle, size
 					name={name}
 					onChange={onChange}
 					placeholder={placeholder}
-					style={{color: value === placeholder ? 'var(--gray400)' : value ? 'var(--gray800)' : 'var(--gray400)'}}
+					style={{ color: value === placeholder ? 'var(--gray400)' : value ? 'var(--gray800)' : 'var(--gray400)' }}
 				/>
 			</div>
 			<span>{errorMsg}</span>
