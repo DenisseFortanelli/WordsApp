@@ -33,9 +33,7 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
   const [user, setUser] = useState<IUser>(initialValues)
   const [isMultiple, setisMultiple] = useState(false)
   const { setIsOpenModal } = useContext(ModalContext)
-  /* const { mutate } = createUserData() */
-  
-
+ 
   const validationSchema = object({
     birthday: date().default(new Date('2004-12-31')).max('2004-12-31','The date cannot be older than 2004'),
     email: string().email('The email does not have a valid format').required('The email is required'),
@@ -71,12 +69,6 @@ const ModalNewUser = ({ size, textHeader, onSuccess }: ModalNew) => {
       <div
         className={`${styles[size]} ${styles.modalContainer}`}
       >
-       {/*  <div className={styles.containerTitle}>
-          <div className={styles.iconHeader}>
-            <User size="1.6rem" color="#F97316" />
-          </div>
-          <p className={styles.textHeader}>{textHeader}</p>
-        </div> */}
         <div className={styles.headerTitle}>
         <div className={styles.containerTitle}>
           <div className={styles.iconHeader}>

@@ -124,7 +124,6 @@ input[type=number]::-webkit-outer-spin-button {
 .contenido:disabled {
 	background: var(--neutral100);
 	cursor: no-drop;
-	border: 0.1rem solid var(--neutral300);
 	color: black;
 }
 

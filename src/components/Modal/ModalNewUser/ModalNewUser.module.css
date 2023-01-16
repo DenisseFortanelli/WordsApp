@@ -1,15 +1,15 @@
 .sm {
-  width: 52rem;
+  width: 64rem;
   height: 98.8rem;
 }
 
 .md {
-  width: 65rem;
-  height: 111.1rem;
+  width: 64rem;
+  height: 113.5rem;
 }
 
 .xl {
-  width: 66rem;
+  width: 64rem;
   height: 98.8rem;
 }
 
@@ -175,7 +175,7 @@
   padding: 0rem;
   gap: 1.6rem;
   margin: 2.4rem;
-  margin-bottom: 5.2rem;
+  margin-bottom: 5.7rem;
   margin-top: 3.2px;
 }
 
@@ -193,7 +193,7 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  left: 45.1rem;
+  left: 43.8rem;
   top: -5.6rem;
 }
 
@@ -243,8 +243,7 @@
 }
 .closeIcon{
   margin-top: 2rem;
-  margin-left: 45rem;
-  margin-right: 29.25px;
+  margin-right: 23px;
   color: var(--neutral500);
   cursor: pointer;
 }

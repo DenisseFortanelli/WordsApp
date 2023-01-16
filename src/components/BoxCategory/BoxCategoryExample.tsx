@@ -1,28 +1,29 @@
 import { Info, PencilSimple, Trash, X } from 'phosphor-react'
-import { Category } from '../../interface/FetchAllCategory'
 import styles from './BoxCategory.module.css'
-import { Term } from './Term'
-import { v4 } from 'uuid'
 
-export interface BoxCategoryProps {
-	item: Category | undefined
-	onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined,
 
+
+export interface BoxCategoryExampleProps {
+	title: string
+	word?: string
+	description: string
+	BodyDescription: string,
+	definition: string,
 }
 
-export const BoxCategory = ({ item, onClick }: BoxCategoryProps) => {
+export const BoxCategoryExample = ({ title, BodyDescription, description, word, definition }: BoxCategoryExampleProps) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.body}>
 				<div className={styles.containerTitle}>
 					<div className={styles.dropdown}>
-						<h3 className={styles.title}>{item?.name}</h3>
+						<h3 className={styles.title}>{title}</h3>
 						<div className={styles.dropdownContent}>
 							<h1 className={styles.styleDescription}>DESCRIPTION</h1>
-							<p className={styles.styleBodyDesc}>{item?.description}</p>
+							<p className={styles.styleBodyDesc}>{BodyDescription}</p>
 							<div className={styles.styleContDef}>
 								<p className={styles.styleDefBy}>Definition by</p>
-								<p className={styles.creater}>{item?.name}</p>
+								<p className={styles.creater}>{definition}</p>
 							</div>
 						</div>
 					</div>
@@ -44,10 +45,17 @@ export const BoxCategory = ({ item, onClick }: BoxCategoryProps) => {
 				</div>
 				<div className={styles.containerWord}>
 					<div className={styles.wrapper}>
-						
-					{item?.words.map((item) => <Term key={v4()} name={item.name} description={item.description} />)}
-
-
+						<p>Adejtival</p>
+                        <p>Filosophy</p>
+                        <p>Collaborative conversations</p>
+                        <p>Adejtival</p>
+                        <p>Filosophy</p>
+                        <p>Description</p>
+                        <p>Determiner</p>
+                        <p>Adejtival</p>
+                        <p>Filosophy</p>
+                        <p>Description</p>
+                        <p>Determiner</p>
 					</div>
 				</div>
 			</div>
@@ -55,8 +63,8 @@ export const BoxCategory = ({ item, onClick }: BoxCategoryProps) => {
 	)
 }
 
-export default BoxCategory
-BoxCategory.defaultProps = {
+export default BoxCategoryExample
+BoxCategoryExample.defaultProps = {
 	title: '🗂️  Norm-ISO 27000',
 	word: 'Absolute phrase',
 	description: 'DESCRIPTION',

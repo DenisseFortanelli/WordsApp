@@ -190,9 +190,8 @@ export const WordsPage = () => {
           :
           (
             <>
-              <br />
               {show &&
-                <div style={{ marginTop: '1rem' }}>
+                <div style={{ marginTop: '2.4rem' }}>
                   <BoxCategory item={category} />
                 </div>
               }
@@ -214,6 +213,9 @@ export const WordsPage = () => {
                   }
                 </div>
               </div>
+              <br />
+              <br />
+              <br />
             </>)}
       </div>
     </div>
