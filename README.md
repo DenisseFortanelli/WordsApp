@@ -1,4 +1,4 @@
-# Para iniciar la aplicacion
+# Para iniciar la aplicación
 
 1-npm i
 2-npm run dev
